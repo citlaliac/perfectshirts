@@ -1,0 +1,151 @@
+name: Deploy to PlanetHoster
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - '**/*.md'
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Test mode (only test FTP connection, no deploy)'
+        required: false
+        default: 'false'
+        type: boolean
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Same FTP secrets as citla.li:
+      #   FTP_SERVER   e.g. node36-ca.n0c.com  (no ftp:// prefix)
+      #   FTP_USERNAME full N0C form, e.g. user@perfectshirts.tld
+      #   FTP_PASSWORD account password
+      #   FTP_REMOTE_DIR target doc root for THIS site (this is a separate
+      #                  site from citla.li, so it is usually the addon-domain
+      #                  or subdomain folder, not the main public_html)
+      - name: Test FTP connection
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+          # URL-encode credentials so $ , ! @ etc. cannot break the open() line.
+          python3 << 'PY'
+          import os
+          from pathlib import Path
+          from urllib.parse import quote
+
+          server = os.environ["FTP_SERVER"].strip()
+          if server.lower().startswith("ftp://"):
+              server = server[6:].strip()
+          server = server.rstrip("/")
+          user = os.environ["FTP_USERNAME"].strip()
+          password = os.environ["FTP_PASSWORD"].replace("\r", "").strip()
+          remote_dir = os.environ.get("FTP_REMOTE_DIR", "public_html").strip() or "public_html"
+          url = f"ftp://{quote(user, safe='')}:{quote(password, safe='')}@{server}/"
+
+          lines = [
+              "set ftp:ssl-allow no",
+              "set ftp:passive-mode on",
+              "set net:timeout 30",
+              "set net:max-retries 3",
+              "set net:connection-limit 1",
+              f"open {url}",
+              f"cd {remote_dir}",
+              "pwd",
+              "ls -la | head -10",
+              "quit",
+          ]
+          Path("test_ftp.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+          if lftp -f test_ftp.txt 2>&1; then
+            echo "FTP connection OK"
+          else
+            echo "FTP connection failed."
+            echo "1. FTP_SERVER like node36-ca.n0c.com (no ftp:// prefix)"
+            echo "2. FTP_USERNAME full N0C form user@yourdomain.tld"
+            echo "3. FTP_REMOTE_DIR is this site's document root"
+            echo "4. Remove stray spaces/newlines from secrets"
+            exit 1
+          fi
+
+      - name: Setup Node.js
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        run: npm ci
+
+      - name: Validate products
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        run: npm run validate:products
+
+      - name: Lint
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        run: npm run lint
+
+      - name: Build static site
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        run: npm run build
+
+      - name: Deploy out/ to PlanetHoster via LFTP
+        if: ${{ github.event.inputs.test_mode != 'true' }}
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y lftp
+          echo "=== FILES TO UPLOAD ==="
+          ls -la out/
+          python3 << 'PY'
+          import os
+          from pathlib import Path
+          from urllib.parse import quote
+
+          server = os.environ["FTP_SERVER"].strip()
+          if server.lower().startswith("ftp://"):
+              server = server[6:].strip()
+          server = server.rstrip("/")
+          user = os.environ["FTP_USERNAME"].strip()
+          password = os.environ["FTP_PASSWORD"].replace("\r", "").strip()
+          remote_dir = os.environ.get("FTP_REMOTE_DIR", "public_html").strip() or "public_html"
+          url = f"ftp://{quote(user, safe='')}:{quote(password, safe='')}@{server}/"
+
+          header = "\n".join([
+              "set ftp:ssl-allow no",
+              "set ftp:passive-mode on",
+              "set net:timeout 30",
+              "set net:max-retries 3",
+              "set net:connection-limit 1",
+          ])
+          # No --ignore-time: size-only compare can skip changed HTML/JS and leave a stale site.
+          mirror = "\n".join([
+              header,
+              f"open {url}",
+              f"cd {remote_dir}",
+              "lcd out",
+              "mirror -R --verbose --exclude-glob .git* --exclude-glob node_modules*",
+              "quit",
+          ])
+          Path("lftp_script.txt").write_text(mirror + "\n", encoding="utf-8")
+          PY
+          lftp -f lftp_script.txt

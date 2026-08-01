@@ -1,0 +1,219 @@
+/**
+ * Intentionally crude early-2000s personal-site look.
+ * Keep mobile readable and touch-friendly despite the joke aesthetic.
+ */
+:root {
+  --page-bg: #ffffcc;
+  --box-bg: #ffffff;
+  --ink: #000000;
+  --link: #0000ee;
+  --visited: #551a8b;
+  --accent: #ff00ff;
+  --border: #000000;
+  --badge-bg: #ff0000;
+  --badge-ink: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background-color: var(--page-bg);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 11px,
+    rgba(0, 0, 0, 0.03) 11px,
+    rgba(0, 0, 0, 0.03) 12px
+  );
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:focus-visible {
+  outline: 3px solid #0000ff;
+  outline-offset: 2px;
+}
+
+.page-wrap {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 8px 12px 40px;
+}
+
+.site-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.marquee-line {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  font-size: 0.95rem;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+.brand-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-title a:hover,
+.brand-title a:focus-visible {
+  text-decoration: underline;
+}
+
+.tagline {
+  margin: 4px 0 8px;
+  font-size: 1.1rem;
+}
+
+.ugly-hr {
+  border: 0;
+  border-top: 4px ridge #808080;
+  margin: 10px 0;
+}
+
+.top-nav {
+  font-size: 1.05rem;
+}
+
+.welcome-box {
+  border: 3px solid var(--border);
+  background: #ccffff;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+}
+
+.welcome-box h2,
+#shirts-heading {
+  margin-top: 0;
+  color: #000080;
+}
+
+.inline-icon {
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+.count-line {
+  margin-top: 0;
+}
+
+.shirt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shirt-box,
+.shirt-detail {
+  border: 4px outset #c0c0c0;
+  background: var(--box-bg);
+  padding: 12px;
+}
+
+.shirt-name {
+  margin: 0 0 8px;
+  font-size: 1.45rem;
+  color: #800000;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 2px 8px;
+  background: var(--badge-bg);
+  color: var(--badge-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.shirt-photo {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+  border: 2px solid var(--border);
+  background: #eeeeee;
+  margin-bottom: 10px;
+}
+
+.shirt-price {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+
+.shirt-meta,
+.shirt-description,
+.etsy-notice {
+  margin: 0 0 10px;
+}
+
+.buy-link {
+  display: inline-block;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 14px;
+  margin: 4px 0;
+  border: 3px outset #c0c0c0;
+  background: #00ff00;
+  color: #000000 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  line-height: 1.2;
+}
+
+.buy-link:hover,
+.buy-link:focus-visible {
+  background: #ffff00;
+}
+
+.etsy-notice {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 24px;
+}
+
+@media (min-width: 700px) {
+  .shirt-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+}
