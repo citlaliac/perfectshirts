@@ -61,12 +61,6 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
         <p className="shirt-price">
           <b>Price:</b> {formatPrice(product.priceCents)}
         </p>
-        <p className="shirt-meta">
-          <b>Sizes on Etsy:</b> {product.sizesSummary}
-          <br />
-          <b>Colors on Etsy:</b> {product.colorsSummary}
-        </p>
-        <p className="shirt-description">{product.description}</p>
         <BuyOnEtsyLink product={product} />
       </article>
     </main>

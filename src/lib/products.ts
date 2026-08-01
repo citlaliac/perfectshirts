@@ -15,16 +15,17 @@ export function getProductBySlug(slug: string): Product | undefined {
 }
 
 /**
- * Returns true when the URL looks like an Etsy listing page.
- * Placeholders may use zeroed listing ids; live products should use real ones.
+ * Returns true for an Etsy listing URL or an Etsy shop URL.
+ * Prefer exact listing URLs when available; shop URLs are OK temporarily.
  */
 export function isValidEtsyListingUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
     const hostOk =
       parsed.hostname === "www.etsy.com" || parsed.hostname === "etsy.com";
-    const pathOk = /^\/listing\/\d+\/[\w-]+/.test(parsed.pathname);
-    return hostOk && pathOk;
+    const isListing = /^\/listing\/\d+(\/[\w-]*)?\/?$/.test(parsed.pathname);
+    const isShop = /^\/shop\/[\w-]+\/?$/.test(parsed.pathname);
+    return hostOk && (isListing || isShop);
   } catch {
     return false;
   }
@@ -64,7 +65,7 @@ export function validateProducts(catalog: Product[] = products): string[] {
 
     if (!isValidEtsyListingUrl(product.etsyUrl)) {
       errors.push(
-        `${product.slug}: etsyUrl must be an Etsy listing URL like https://www.etsy.com/listing/123/slug`,
+        `${product.slug}: etsyUrl must be an Etsy listing or shop URL`,
       );
     }
   }

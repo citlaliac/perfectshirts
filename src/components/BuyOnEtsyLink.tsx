@@ -25,10 +25,6 @@ export function BuyOnEtsyLink({ product, className }: BuyOnEtsyLinkProps) {
       >
         {label}
       </a>
-      <br />
-      <span className="etsy-notice">
-        (this opens Etsy in a new window so you can pick size and pay there)
-      </span>
     </p>
   );
 }

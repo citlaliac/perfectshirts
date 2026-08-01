@@ -106,7 +106,7 @@ a:focus-visible {
 
 .welcome-box {
   border: 3px solid var(--border);
-  background: #ccffff;
+  background: #ddffd9;
   padding: 10px 12px;
   margin-bottom: 18px;
 }
@@ -161,7 +161,8 @@ a:focus-visible {
   width: min(100%, 320px);
   height: auto;
   border: 2px solid var(--border);
-  background: #eeeeee;
+  /* Soft purple shows through transparent PNG mockups */
+  background: #cef5eb;
   margin-bottom: 10px;
 }
 
