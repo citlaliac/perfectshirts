@@ -23,13 +23,20 @@ export function ShirtListing({ product }: ShirtListingProps) {
       {product.isPlaceholder ? (
         <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>
       ) : null}
-      <Image
-        className="shirt-photo"
-        src={product.imageSrc}
-        alt={product.imageAlt}
-        width={320}
-        height={360}
-      />
+      <a
+        href={product.etsyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Buy ${product.name} on Etsy`}
+      >
+        <Image
+          className="shirt-photo"
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          width={320}
+          height={360}
+        />
+      </a>
       <p className="shirt-price">
         <b>Price:</b> {formatPrice(product.priceCents)}
       </p>

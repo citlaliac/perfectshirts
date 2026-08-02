@@ -23,12 +23,12 @@ export default function RootLayout({
             <hr className="ugly-hr" />
             <p>
               copyright © {new Date().getFullYear()} perfect t shirts
-              <br />
-              best viewed with a computer and eyes
+              {/* <br />
+              best viewed with a computer and eyes */}
               <br />
               purchases happen on{" "}
               <a
-                href="https://www.etsy.com"
+                href="https://www.etsy.com/shop/fawnandfrog/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

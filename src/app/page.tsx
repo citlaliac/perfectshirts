@@ -9,8 +9,7 @@ export default function HomePage() {
       <section className="welcome-box" aria-labelledby="welcome-heading">
         {/* <h2 id="welcome-heading">hello</h2> */}
         <p>
-          find here perfect shirts. click a shirt. then click buy on etsy. then
-          buy it on etsy.
+          peruse here, then click 'buy on etsy' to buy it through my etsy.
         </p>
       </section>
 

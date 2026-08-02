@@ -6,10 +6,12 @@ export function SiteHeader() {
     <header className="site-header">
       <p className="marquee-line">*** welcome to the perfect shirt website ***</p>
       <h1 className="brand-title">
-        <Link href="/">perfect t shirts</Link>
+        <Link href="/">perfect shirts</Link>
       </h1>
       <p className="tagline">home of shirts that are perfect</p>
+      {/* Extra top rule removed — legal-pad blue line is the page background
       <hr className="ugly-hr" />
+      */}
       {/*
       <nav className="top-nav" aria-label="Primary">
         <Link href="/">home</Link>
