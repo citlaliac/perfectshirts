@@ -1,0 +1,57 @@
+# Sync catalog from Printify on a schedule (and manually).
+# Requires repo secrets: PRINTIFY_API_TOKEN, PRINTIFY_SHOP_ID
+#
+# After a successful sync with file changes, this commits to main,
+# which triggers the existing FTP deploy workflow.
+
+name: Sync Printify catalog
+
+on:
+  schedule:
+    # 11:00 UTC ≈ 7:00 AM Eastern (EDT) / 6:00 AM (EST)
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-printify
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync from Printify
+        env:
+          PRINTIFY_API_TOKEN: ${{ secrets.PRINTIFY_API_TOKEN }}
+          PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
+        run: npm run sync:printify
+
+      - name: Validate products
+        run: npm run validate:products
+
+      - name: Commit and push if catalog changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/shirts src/data/products.ts
+          if git diff --staged --quiet; then
+            echo "No catalog changes."
+            exit 0
+          fi
+          git commit -m "chore: sync catalog from Printify"
+          git push origin HEAD:main

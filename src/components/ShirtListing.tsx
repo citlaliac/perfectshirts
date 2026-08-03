@@ -1,51 +1,38 @@
-import Image from "next/image";
-import type { Product } from "@/data/products";
+import type { Product } from "@/data/product-types";
 import { formatPrice } from "@/lib/products";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
+import { ShirtPhoto } from "@/components/ShirtPhoto";
 
 type ShirtListingProps = {
   product: Product;
 };
 
-/** Basic bordered shirt block: photo, name, price, and Etsy handoff. */
+/**
+ * Shirt card: photo (links to Etsy; hover/auto-flip for back) then
+ * title underneath, with price + Buy on Etsy on one quiet line.
+ */
 export function ShirtListing({ product }: ShirtListingProps) {
   return (
     <article className="shirt-box" id={product.slug}>
+      <ShirtPhoto
+        name={product.name}
+        frontSrc={product.imageSrc}
+        backSrc={product.imageBackSrc}
+        alt={product.imageAlt}
+        etsyUrl={product.etsyUrl}
+      />
       <h2 className="shirt-name">
-        <a
-          href={product.etsyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
           {product.name}
         </a>
       </h2>
-      {product.isPlaceholder ? (
-        <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>
-      ) : null}
-      <a
-        href={product.etsyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Buy ${product.name} on Etsy`}
-      >
-        <Image
-          className="shirt-photo"
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          width={320}
-          height={360}
-        />
-      </a>
-      <p className="shirt-price">
-        <b>Price:</b> {formatPrice(product.priceCents)}
+      <p className="shirt-meta">
+        <span className="shirt-price">{formatPrice(product.priceCents)}</span>
+        <span className="shirt-meta-sep" aria-hidden="true">
+          ·
+        </span>
+        <BuyOnEtsyLink product={product} />
       </p>
-      <BuyOnEtsyLink product={product} />
-      {/* Keep for later — detail page still exists at /shirts/[slug]
-      <p>
-        <Link href={`/shirts/${product.slug}/`}>more info about this shirt</Link>
-      </p>
-      */}
     </article>
   );
 }

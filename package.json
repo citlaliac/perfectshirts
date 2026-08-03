@@ -8,18 +8,24 @@
     "start": "next start",
     "lint": "eslint",
     "validate:products": "tsx scripts/validate-products.ts",
+    "sync:printify": "tsx scripts/sync-printify.ts",
+    "cutout:shirts": "tsx scripts/cutout-shirts.ts",
     "check": "npm run validate:products && npm run lint && npm run build"
   },
   "dependencies": {
+    "@fontsource-variable/zalando-sans": "^5.3.0",
+    "@fontsource/rock-3d": "^5.3.0",
     "next": "15.5.9",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sharp": "^0.31.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.9",
     "tsx": "^4.20.3",

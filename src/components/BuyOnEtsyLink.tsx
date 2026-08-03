@@ -1,30 +1,25 @@
-import type { Product } from "@/data/products";
+import type { Product } from "@/data/product-types";
 
 type BuyOnEtsyLinkProps = {
   product: Product;
   className?: string;
 };
 
-/**
- * Opens the exact Etsy listing in a new tab after telling the buyer they leave this site.
- * Etsy remains the checkout source of truth for sizes, shipping, and payment.
- */
+/** Opens the Etsy shop/listing in a new tab. */
 export function BuyOnEtsyLink({ product, className }: BuyOnEtsyLinkProps) {
   const label = product.isPlaceholder
-    ? "Buy on Etsy (demo link — not live yet)"
-    : "Buy on Etsy";
+    ? "buy on etsy (demo link — not live yet)"
+    : "buy on etsy";
 
   return (
-    <p className={className}>
-      <a
-        className="buy-link"
-        href={product.etsyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`${label} for ${product.name}`}
-      >
-        {label}
-      </a>
-    </p>
+    <a
+      className={className ?? "buy-link"}
+      href={product.etsyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} for ${product.name}`}
+    >
+      {label}
+    </a>
   );
 }

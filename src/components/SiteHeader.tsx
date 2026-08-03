@@ -1,27 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 
-/** Large serif brand banner for the intentionally crude 2002 look. */
+/** Brand mark + title; the gif sits to the left of “perfect shirts”. */
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <p className="marquee-line">*** welcome to the perfect shirt website ***</p>
-      <h1 className="brand-title">
-        <Link href="/">perfect shirts</Link>
-      </h1>
-      <p className="tagline">home of shirts that are perfect</p>
-      {/* Extra top rule removed — legal-pad blue line is the page background
-      <hr className="ugly-hr" />
-      */}
-      {/*
-      <nav className="top-nav" aria-label="Primary">
-        <Link href="/">home</Link>
-        {" | "}
-        <a href="#shirts">shirts</a>
-        {" | "}
-        <a href="mailto:hello@example.com">email me</a>
-      </nav>
-      <hr className="ugly-hr" />
-      */}
+      <Link className="brand-link" href="/">
+        <Image
+          className="brand-logo"
+          src="/assets/logo.gif"
+          alt=""
+          width={72}
+          height={72}
+          unoptimized
+          priority
+        />
+        <h1 className="brand-title">perfect shirts</h1>
+      </Link>
     </header>
   );
 }

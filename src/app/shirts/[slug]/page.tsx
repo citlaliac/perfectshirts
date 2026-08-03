@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
+import { ShirtPhoto } from "@/components/ShirtPhoto";
 import {
   formatPrice,
   getAllProducts,
@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: ShirtPageProps) {
   const product = getProductBySlug(slug);
 
   if (!product) {
-    return { title: "shirt not found — perfect t shirts" };
+    return { title: "shirt not found — perfect shirts" };
   }
 
   return {
-    title: `${product.name} — perfect t shirts`,
+    title: `${product.name} — perfect shirts`,
     description: product.description,
   };
 }
@@ -45,23 +45,25 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
       </p>
 
       <article className="shirt-detail">
-        <h2 className="shirt-name">{product.name}</h2>
-        {product.isPlaceholder ? (
-          <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>
-        ) : null}
-
-        <Image
-          className="shirt-photo"
-          src={product.imageSrc}
+        <ShirtPhoto
+          name={product.name}
+          frontSrc={product.imageSrc}
+          backSrc={product.imageBackSrc}
           alt={product.imageAlt}
-          width={320}
-          height={360}
+          etsyUrl={product.etsyUrl}
         />
-
-        <p className="shirt-price">
-          <b>Price:</b> {formatPrice(product.priceCents)}
+        <h2 className="shirt-name">
+          <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
+            {product.name}
+          </a>
+        </h2>
+        <p className="shirt-meta">
+          <span className="shirt-price">{formatPrice(product.priceCents)}</span>
+          <span className="shirt-meta-sep" aria-hidden="true">
+            ·
+          </span>
+          <BuyOnEtsyLink product={product} />
         </p>
-        <BuyOnEtsyLink product={product} />
       </article>
     </main>
   );
