@@ -12,11 +12,13 @@ type ShirtPhotoProps = {
   etsyUrl: string;
 };
 
+/** Front for 8s, back for 8s, repeat on phones / touch devices. */
 const MOBILE_FLIP_MS = 8_000;
 
 /**
  * Shirt photo that links to Etsy on click.
- * Desktop: hover shows the back. Mobile: auto-flips every 8s.
+ * Desktop (mouse): hover shows the back.
+ * Mobile / touch: auto-flips front ↔ back every 8 seconds.
  */
 export function ShirtPhoto({
   name,
@@ -26,55 +28,71 @@ export function ShirtPhoto({
   etsyUrl,
 }: ShirtPhotoProps) {
   const [showBack, setShowBack] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [autoFlip, setAutoFlip] = useState(false);
   const hasBack = Boolean(backSrc);
-  const activeSrc = showBack && backSrc ? backSrc : frontSrc;
 
+  // Phones, narrow viewports, and touch-first devices all auto-flip.
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 699px)");
-    const sync = () => setIsMobile(media.matches);
+    const narrow = window.matchMedia("(max-width: 699px)");
+    const touch = window.matchMedia("(hover: none), (pointer: coarse)");
+    const sync = () => {
+      setAutoFlip(narrow.matches || touch.matches);
+    };
     sync();
-    media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
+    narrow.addEventListener("change", sync);
+    touch.addEventListener("change", sync);
+    return () => {
+      narrow.removeEventListener("change", sync);
+      touch.removeEventListener("change", sync);
+    };
   }, []);
 
+  // Front → wait 8s → back → wait 8s → front… forever while auto-flip is on.
   useEffect(() => {
-    if (!hasBack || !isMobile) return;
+    if (!hasBack || !autoFlip) {
+      setShowBack(false);
+      return;
+    }
+
+    setShowBack(false);
     const id = window.setInterval(() => {
-      setShowBack((value) => !value);
+      setShowBack((showingBack) => !showingBack);
     }, MOBILE_FLIP_MS);
+
     return () => window.clearInterval(id);
-  }, [hasBack, isMobile]);
+  }, [hasBack, autoFlip]);
 
   return (
     <a
-      className="shirt-photo-link"
+      className={`shirt-photo-link${showBack && hasBack ? " is-showing-back" : ""}`}
       href={etsyUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Buy ${name} on Etsy`}
       onMouseEnter={() => {
-        if (hasBack && !isMobile) setShowBack(true);
+        if (hasBack && !autoFlip) setShowBack(true);
       }}
       onMouseLeave={() => {
-        if (!isMobile) setShowBack(false);
+        if (!autoFlip) setShowBack(false);
       }}
     >
+      {/* Both sides stay mounted; opacity swap is more reliable than src changes. */}
       <Image
-        className="shirt-photo"
-        src={activeSrc}
-        alt={showBack && hasBack ? `${name} back` : alt}
+        className={`shirt-photo shirt-photo-front${showBack && hasBack ? "" : " is-active"}`}
+        src={frontSrc}
+        alt={alt}
         fill
         sizes="(max-width: 699px) 100vw, 50vw"
+        priority={false}
       />
       {hasBack && backSrc ? (
         <Image
-          className="shirt-photo-preload"
-          src={showBack ? frontSrc : backSrc}
-          alt=""
-          width={320}
-          height={360}
-          aria-hidden
+          className={`shirt-photo shirt-photo-back${showBack ? " is-active" : ""}`}
+          src={backSrc}
+          alt={`${name} back`}
+          fill
+          sizes="(max-width: 699px) 100vw, 50vw"
+          aria-hidden={!showBack}
         />
       ) : null}
     </a>
