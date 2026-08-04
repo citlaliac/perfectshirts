@@ -12,6 +12,18 @@ export { ETSY_SHOP_URL } from "./product-types";
 
 export const products: Product[] = [
   {
+    slug: "unisex-active-t-shirt",
+    printifyId: "6a7150b09cec35e73f0f7626",
+    name: "Unisex Active T Shirt",
+    description: "",
+    priceCents: 4325,
+    imageSrc: "/shirts/unisex-active-t-shirt-front.png",
+    imageBackSrc: "/shirts/unisex-active-t-shirt-back.png",
+    imageAlt: "Unisex Active T Shirt mockup",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
     slug: "catholic-ecloud-lamb-worshiper-simple",
     printifyId: "6a700d83d47180182b033827",
     name: "Catholic eCloud Lamb Worshiper - simple",
