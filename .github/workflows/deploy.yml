@@ -3,6 +3,7 @@ name: Deploy to PlanetHoster
 on:
   push:
     branches: [ main ]
+    # Note: empty commits do not run this job when paths filters are set.
     paths-ignore:
       - 'README.md'
       - '**/*.md'
