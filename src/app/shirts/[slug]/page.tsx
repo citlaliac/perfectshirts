@@ -45,6 +45,11 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
       </p>
 
       <article className="shirt-detail">
+        <h2 className="shirt-name">
+          <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
+            {product.name}
+          </a>
+        </h2>
         <ShirtPhoto
           name={product.name}
           frontSrc={product.imageSrc}
@@ -52,18 +57,10 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
           alt={product.imageAlt}
           etsyUrl={product.etsyUrl}
         />
-        <h2 className="shirt-name">
-          <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
-            {product.name}
-          </a>
-        </h2>
-        <p className="shirt-meta">
-          <span className="shirt-price">{formatPrice(product.priceCents)}</span>
-          <span className="shirt-meta-sep" aria-hidden="true">
-            ·
-          </span>
-          <BuyOnEtsyLink product={product} />
+        <p className="shirt-price">
+          <b>Price:</b> {formatPrice(product.priceCents)}
         </p>
+        <BuyOnEtsyLink product={product} />
       </article>
     </main>
   );

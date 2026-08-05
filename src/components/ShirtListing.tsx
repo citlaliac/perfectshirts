@@ -8,12 +8,19 @@ type ShirtListingProps = {
 };
 
 /**
- * Shirt card: photo (links to Etsy; hover/auto-flip for back) then
- * title underneath, with price + Buy on Etsy on one quiet line.
+ * Legal-pad shirt block: name, photo (hover / mobile flip), price, Etsy.
  */
 export function ShirtListing({ product }: ShirtListingProps) {
   return (
     <article className="shirt-box" id={product.slug}>
+      <h2 className="shirt-name">
+        <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
+          {product.name}
+        </a>
+      </h2>
+      {product.isPlaceholder ? (
+        <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>
+      ) : null}
       <ShirtPhoto
         name={product.name}
         frontSrc={product.imageSrc}
@@ -21,18 +28,10 @@ export function ShirtListing({ product }: ShirtListingProps) {
         alt={product.imageAlt}
         etsyUrl={product.etsyUrl}
       />
-      <h2 className="shirt-name">
-        <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
-          {product.name}
-        </a>
-      </h2>
-      <p className="shirt-meta">
-        <span className="shirt-price">{formatPrice(product.priceCents)}</span>
-        <span className="shirt-meta-sep" aria-hidden="true">
-          ·
-        </span>
-        <BuyOnEtsyLink product={product} />
+      <p className="shirt-price">
+        <b>Price:</b> {formatPrice(product.priceCents)}
       </p>
+      <BuyOnEtsyLink product={product} />
     </article>
   );
 }

@@ -1,89 +1,172 @@
-/**
- * Minimal catalog layout.
- * 1 column on mobile, 2 columns on desktop. Add branding/style later.
+﻿/**
+ * Intentionally crude early-2000s personal-site look.
+ * Keep mobile readable and touch-friendly despite the joke aesthetic.
  */
 :root {
-  /* Soft lavender wash over the background photo */
-  --bg-lavender: rgba(210, 190, 230, 0.55);
-  --bg-lavender-deep: rgba(190, 170, 220, 0.35);
-  --text: #333;
-  --font-sans: "Zalando Sans Variable", "Zalando Sans", system-ui, sans-serif;
-  --font-brand: "Rock 3D", var(--font-sans);
+  --page-bg: #fff7a8;
+  /* Thick header rule + ruled lines on the yellow pad */
+  --legal-blue: #7aa3d4;
+  --legal-red: #e04545;
+  /* Empty legal-pad header above the thick rule */
+  --legal-header-end: 150px;
+  /* Card surround — was the tee photo backdrop mint */
+  --box-bg: #d3ece9;
+  --ink: #4a4a4a;
+  --link: #3a5fcc;
+  --visited: #6b4a8b;
+  --accent: #ff00ff;
+  --border: #5a5a5a;
+  --badge-bg: #ff0000;
+  --badge-ink: #ffffff;
+  --rule-line: rgba(122, 163, 212, 0.28);
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
+html {
+  color-scheme: light;
+}
+
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
-}
-
-body {
-  position: relative;
-  color: var(--text);
-  /* Pale base so the faint photo + tint still reads on short pages */
-  background-color: #f4eef8;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* Fixed photo layer — kept very transparent so shirts stay the focus */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  /* Background photo: public/assets/cathedral-bkg.jpg */
-  background-image: url("/assets/cathedral-bkg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.28;
-  pointer-events: none;
-}
-
-/* Lavender tint veil over the photo */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    165deg,
-    var(--bg-lavender) 0%,
-    var(--bg-lavender-deep) 55%,
-    rgba(230, 220, 245, 0.45) 100%
-  );
-  pointer-events: none;
+  min-height: 100vh;
+  color: var(--ink);
+  /* Yellow legal pad: blank top, thick blue rule, then blue lines */
+  background-color: var(--page-bg);
+  background-image:
+    /* Double thin red margin lines on the left */
+    linear-gradient(
+      90deg,
+      transparent 50px,
+      rgba(224, 69, 69, 0.45) 50px,
+      rgba(224, 69, 69, 0.45) 51px,
+      transparent 51px,
+      transparent 54px,
+      rgba(224, 69, 69, 0.45) 54px,
+      rgba(224, 69, 69, 0.45) 55px,
+      transparent 55px
+    ),
+    /* Solid yellow mask so no ruled lines above the thick blue rule */
+    linear-gradient(
+      180deg,
+      var(--page-bg) 0,
+      var(--page-bg) var(--legal-header-end),
+      transparent var(--legal-header-end)
+    ),
+    /* Thick blue rule a bit further down */
+    linear-gradient(
+      180deg,
+      transparent var(--legal-header-end),
+      var(--legal-blue) var(--legal-header-end),
+      var(--legal-blue) calc(var(--legal-header-end) + 2px),
+      transparent calc(var(--legal-header-end) + 2px)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      var(--rule-line) 27px,
+      var(--rule-line) 28px
+    );
+  background-attachment: local;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
 a {
-  color: inherit;
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
 }
 
 a:focus-visible {
-  outline: 2px solid #333;
+  outline: 3px solid #0000ff;
   outline-offset: 2px;
 }
 
 .page-wrap {
-  width: min(960px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
-  padding: 16px;
+  /* Leave room for the red margin line on the left */
+  padding: 12px 12px 40px 64px;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --legal-header-end: 120px;
+  }
+
+  body {
+    background-image:
+      linear-gradient(
+        90deg,
+        transparent 26px,
+        rgba(224, 69, 69, 0.45) 26px,
+        rgba(224, 69, 69, 0.45) 27px,
+        transparent 27px,
+        transparent 29px,
+        rgba(224, 69, 69, 0.45) 29px,
+        rgba(224, 69, 69, 0.45) 30px,
+        transparent 30px
+      ),
+      linear-gradient(
+        180deg,
+        var(--page-bg) 0,
+        var(--page-bg) var(--legal-header-end),
+        transparent var(--legal-header-end)
+      ),
+      linear-gradient(
+        180deg,
+        transparent var(--legal-header-end),
+        var(--legal-blue) var(--legal-header-end),
+        var(--legal-blue) calc(var(--legal-header-end) + 2px),
+        transparent calc(var(--legal-header-end) + 2px)
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        var(--rule-line) 27px,
+        var(--rule-line) 28px
+      );
+  }
+
+  .page-wrap {
+    padding: 10px 10px 36px 36px;
+  }
 }
 
 .site-header {
-  margin-bottom: 24px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.marquee-line {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  font-size: 0.95rem;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
 }
 
 .brand-link {
   display: inline-flex;
   align-items: flex-end;
+  justify-content: center;
   gap: 0.65rem;
   text-decoration: none;
   color: inherit;
@@ -95,65 +178,121 @@ a:focus-visible {
   width: clamp(2.5rem, 10vw, 4.5rem);
   height: auto;
   flex-shrink: 0;
-  /* Sit much lower than the Rock 3D title */
-  transform: translateY(0.95em);
+  /* Sit a bit higher relative to the brand title baseline */
+  transform: translateY(0.45em);
 }
 
-.brand-title {
+.brand-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-title a:hover,
+.brand-title a:focus-visible {
+  text-decoration: underline;
+}
+
+.tagline {
+  margin: 4px 0 8px;
+  font-size: 1.1rem;
+}
+
+.ugly-hr {
+  border: 0;
+  border-top: 4px ridge #808080;
+  margin: 10px 0;
+}
+
+.top-nav {
+  font-size: 1.05rem;
+}
+
+.welcome-box {
+  border: 3px solid var(--border);
+  background: #ddffd9;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.welcome-box p {
   margin: 0;
-  font-family: var(--font-brand);
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 400;
-  line-height: 1.15;
-  text-transform: lowercase;
+}
+
+.welcome-box h2,
+#shirts-heading {
+  margin-top: 0;
+  color: #4a5a90;
+}
+
+.inline-icon {
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+.count-line {
+  margin-top: 0;
 }
 
 .shirt-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-@media (min-width: 700px) {
-  .shirt-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.shirt-box {
-  margin: 0;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  gap: 20px;
+}
+
+.shirt-box,
+.shirt-detail {
+  border: 4px outset #c0c0c0;
+  background: var(--box-bg);
+  padding: 12px;
 }
 
 .shirt-name {
-  margin: 8px 0 0;
-  font-size: 1.1rem;
-  font-weight: 400;
-  text-transform: lowercase;
+  margin: 0 0 8px;
+  font-size: 1.45rem;
+  color: #9b7bb8;
 }
 
 .shirt-name a {
+  color: inherit;
   text-decoration: none;
 }
 
-/* Fixed frame matching the shared mockup canvas (1000×1100) */
+.shirt-name a:visited {
+  color: inherit;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 2px 8px;
+  background: var(--badge-bg);
+  color: var(--badge-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .shirt-photo-link {
   display: block;
-  width: 100%;
+  width: min(100%, 320px);
   aspect-ratio: 1000 / 1100;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-  text-align: left;
   position: relative;
+  margin: 0 0 10px;
+  border: 2px solid var(--border);
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  /* Soft radial shadow over a white tee backdrop */
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.1) 35%,
+      rgba(0, 0, 0, 0.03) 55%,
+      transparent 72%
+    ),
+    #ffffff;
 }
 
 .shirt-photo {
@@ -166,39 +305,64 @@ a:focus-visible {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  border: 0;
+  background: none;
+  margin: 0;
 }
 
 .shirt-photo.is-active {
   opacity: 1;
 }
 
-.shirt-meta {
-  margin: 4px 0 0;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.4;
+.shirt-price {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
 }
 
-/* Same inline text run so price + link share one baseline (no flex offset). */
-.shirt-price,
-.shirt-meta-sep,
+.shirt-meta,
+.shirt-description,
+.etsy-notice {
+  margin: 0 0 10px;
+}
+
 .buy-link {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  text-decoration: none;
-  vertical-align: baseline;
+  display: inline-block;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 14px;
+  margin: 4px 0;
+  border: 3px outset #c0c0c0;
+  background: #00ff00;
+  color: #4a4a4a !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  line-height: 1.2;
 }
 
-.shirt-meta-sep {
-  margin: 0 0.55em;
+.buy-link:hover,
+.buy-link:focus-visible {
+  background: #ffff00;
+}
+
+.etsy-notice {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 24px;
+}
+
+@media (min-width: 700px) {
+  .shirt-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
 }

@@ -252,8 +252,31 @@ function synthesizeBackFromFront(
 }
 
 /**
+ * Force a mockup URL onto the same color variant as the chosen front.
+ * Prevents pink-front / white-back (and similar) mismatches.
+ */
+function alignMockupToFrontColor(
+  image: PrintifyImage,
+  front: PrintifyImage | undefined,
+): { image: PrintifyImage; rewritten: boolean } {
+  const frontVariantId = front ? mockupUrlVariantId(front.src) : undefined;
+  if (frontVariantId == null) return { image, rewritten: false };
+  const backVariantId = mockupUrlVariantId(image.src);
+  if (backVariantId === frontVariantId) return { image, rewritten: false };
+  return {
+    image: {
+      ...image,
+      src: rewriteMockupVariant(image.src, frontVariantId),
+      is_default: false,
+    },
+    rewritten: true,
+  };
+}
+
+/**
  * Prefer a back already tagged for this color; otherwise any back rewritten
- * to this color; otherwise synthesize from the front CDN URL.
+ * to the front's color; otherwise synthesize from the front CDN URL.
+ * Always ends on the same variant id as `front`.
  */
 function resolveBackImage(
   coloredImages: PrintifyImage[],
@@ -262,21 +285,15 @@ function resolveBackImage(
   frontToBackCamera: Map<number, number>,
 ): { image?: PrintifyImage; synthesized: boolean } {
   const coloredBack = pickBack(coloredImages);
-  if (coloredBack) return { image: coloredBack, synthesized: false };
+  if (coloredBack) {
+    const { image, rewritten } = alignMockupToFrontColor(coloredBack, front);
+    return { image, synthesized: rewritten };
+  }
 
   const anyBack = pickBack(allImages);
   if (anyBack && front) {
-    const variantId = mockupUrlVariantId(front.src);
-    if (variantId != null) {
-      return {
-        image: {
-          ...anyBack,
-          src: rewriteMockupVariant(anyBack.src, variantId),
-          is_default: false,
-        },
-        synthesized: true,
-      };
-    }
+    const { image, rewritten } = alignMockupToFrontColor(anyBack, front);
+    return { image, synthesized: rewritten };
   }
 
   if (front) {
@@ -495,7 +512,16 @@ async function main() {
       sampleId,
     );
     const usedColorPick = colorIds.size > 0 && coloredImages !== allImages;
-    const front = pickFront(coloredImages, !usedColorPick);
+    let front = pickFront(coloredImages, !usedColorPick);
+    // Pin the front URL to the preferred size sample (usually L) so front/back
+    // resolve to the exact same Printify color variant id.
+    if (front && sampleId != null && mockupUrlVariantId(front.src) !== sampleId) {
+      front = {
+        ...front,
+        src: rewriteMockupVariant(front.src, sampleId),
+        is_default: false,
+      };
+    }
     const { image: back, synthesized: backSynthesized } = resolveBackImage(
       coloredImages,
       allImages,
@@ -504,6 +530,17 @@ async function main() {
     );
     const priceCents = pickPriceCents(product.variants);
     const colorLabel = matchedColor ? `, ${matchedColor}` : "";
+    const frontVariant = front ? mockupUrlVariantId(front.src) : undefined;
+    const backVariant = back ? mockupUrlVariantId(back.src) : undefined;
+    if (
+      frontVariant != null &&
+      backVariant != null &&
+      frontVariant !== backVariant
+    ) {
+      console.warn(
+        `  warn (${product.title}): front/back color mismatch (${frontVariant} vs ${backVariant})`,
+      );
+    }
 
     if (!front?.src) {
       console.warn(`  skip (no front image): ${product.title}`);
@@ -514,10 +551,10 @@ async function main() {
     }
 
     // Download raw mockup, then cut out the white studio backdrop → PNG.
-    // Light pale fabrics need pure-white flood; saturated colors use the
-    // gray-fringe flood so under-sleeve studio white clears cleanly.
+    // Near-white fabrics need pure-white flood so yarn texture isn't eaten.
+    // Dyed colors (incl. pink) use the gray-fringe flood for cleaner edges.
     const cutMode =
-      /white|cream|sky blue|powder blue|natural|blonde|pink|carolina/i.test(
+      /white|cream|sky blue|powder blue|natural|blonde|carolina/i.test(
         matchedColor ?? preferredColor ?? "",
       )
         ? "white"

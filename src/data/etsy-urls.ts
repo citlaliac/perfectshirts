@@ -30,7 +30,7 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4548826131/catholic-ecloud-frog-worshiper-simple",
   "catholic-ecloud-lamb-worshiper-simple":
     "https://www.etsy.com/listing/4548839363/catholic-ecloud-lamb-worshiper-simple",
-  "copy-of-catholic-ecloud-fairy-worshiper-simple":
+  "catholic-ecloud-fairy-worshiper-simple":
     "https://www.etsy.com/listing/4548839057/catholic-ecloud-fairy-worshiper-simple",
   "hypno-crime": "https://www.etsy.com/listing/4548746985/hypno-crime",
   "i-am-not-irish-do-not-touch-me":
