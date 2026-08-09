@@ -9,6 +9,7 @@
     "lint": "eslint",
     "validate:products": "tsx scripts/validate-products.ts",
     "sync:printify": "tsx scripts/sync-printify.ts",
+    "intake:printify": "tsx scripts/sync-printify.ts --intake",
     "cutout:shirts": "tsx scripts/cutout-shirts.ts",
     "check": "npm run validate:products && npm run lint && npm run build"
   },

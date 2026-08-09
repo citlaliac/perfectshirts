@@ -1,21 +1,35 @@
 /**
- * Sync catalog from Printify: title, price, front + back mockups.
+ * Sync catalog from Printify: title, price, colors, cutouts, tags.
  *
- * Setup:
- *   1. Copy .env.example → .env.local
- *   2. Set PRINTIFY_API_TOKEN and PRINTIFY_SHOP_ID
- *   3. Edit src/data/mockup-colors.ts for preferred shirt colors
- *   4. npm run sync:printify
+ * ## Shirt intake flow (do this BEFORE a full sync)
+ *
+ * 1. Finish products in Printify (title, enabled colors, tags, mockups).
+ *    Products set to Hidden in Printify are skipped and stay off the site.
+ * 2. Run intake (read-only — does not write files):
+ *      npm run intake:printify
+ * 3. For each NEW shirt (and any missing a pick), choose a main listing color
+ *    and add it to src/data/mockup-colors.ts.
+ * 4. Optionally set display order in src/data/product-order.ts
+ *    and Etsy listing URLs in src/data/etsy-urls.ts.
+ * 5. Full sync (downloads mockups, cutouts, all colors, writes products.ts):
+ *      npm run sync:printify
+ * 6. Spot-check locally (npm run dev), then commit / push to deploy.
+ *
+ * Automated cutout + multi-color gallery happen in step 5.
+ * Main color is the only hand pick required for a clean listing card.
  *
  * Options:
+ *   npm run intake:printify
  *   npm run sync:printify -- --list-shops
  *   npm run sync:printify -- --list-colors
+ *   npm run sync:printify
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { mockupColors } from "../src/data/mockup-colors";
 import { etsyUrls } from "../src/data/etsy-urls";
+import { products as existingProducts } from "../src/data/products";
 import { cutoutShirt } from "./lib/cutout-shirt";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -43,8 +57,17 @@ type PrintifyProduct = {
   title: string;
   description?: string;
   visible?: boolean;
+  tags?: string[];
+  /** ISO timestamp from Printify, e.g. "2026-08-01T12:00:00+00:00" */
+  created_at?: string;
   images?: PrintifyImage[];
   variants?: PrintifyVariant[];
+};
+
+type SyncedColor = {
+  name: string;
+  frontSrc: string;
+  backSrc?: string;
 };
 
 type PrintifyProductList = {
@@ -113,10 +136,27 @@ function isBackImage(img: PrintifyImage): boolean {
   return pos === "back" || cam === "back" || cam.startsWith("back");
 }
 
-/** Color name from a Printify variant title like "Teal / L". */
+/** Size tokens that appear in Printify variant titles (not fabric colors). */
+const VARIANT_SIZE_RE =
+  /^(xxs|xs|s|m|l|xl|xxl|2xl|3xl|4xl|5xl|6xl|\d+xl)$/i;
+
+/**
+ * Color name from a Printify variant title.
+ * Titles may be "Teal / L" or "L / Teal" depending on the blueprint —
+ * prefer the segment that is not a clothing size.
+ */
 function variantColor(title: string | undefined): string {
   if (!title) return "";
-  return title.split("/")[0]?.trim() ?? "";
+  const parts = title
+    .split("/")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) {
+    return VARIANT_SIZE_RE.test(parts[0]) ? "" : parts[0];
+  }
+  const nonSize = parts.find((part) => !VARIANT_SIZE_RE.test(part));
+  return nonSize ?? "";
 }
 
 /** Unique enabled colors for a product, sorted for readable logs. */
@@ -361,18 +401,31 @@ function pickPriceCents(variants: PrintifyVariant[] | undefined): number {
 }
 
 async function printifyFetch<T>(token: string, apiPath: string): Promise<T> {
-  const res = await fetch(`${API_BASE}${apiPath}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json;charset=utf-8",
-      "User-Agent": "perfectshirts-sync",
-    },
-  });
-  if (!res.ok) {
+  // Printify rate-limits bursty syncs; back off and retry a few times.
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    const res = await fetch(`${API_BASE}${apiPath}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json;charset=utf-8",
+        "User-Agent": "perfectshirts-sync",
+      },
+    });
+    if (res.ok) {
+      return (await res.json()) as T;
+    }
+    if (res.status === 429 && attempt < 5) {
+      const retryAfter = Number(res.headers.get("retry-after"));
+      const waitMs = Number.isFinite(retryAfter)
+        ? retryAfter * 1000
+        : 15_000 * (attempt + 1);
+      console.warn(`  rate limited on ${apiPath}; waiting ${Math.round(waitMs / 1000)}s…`);
+      await new Promise((r) => setTimeout(r, waitMs));
+      continue;
+    }
     const body = await res.text();
     throw new Error(`Printify ${apiPath} → ${res.status}: ${body.slice(0, 400)}`);
   }
-  return (await res.json()) as T;
+  throw new Error(`Printify ${apiPath} → rate limit retries exhausted`);
 }
 
 async function listAllProducts(
@@ -417,6 +470,7 @@ async function main() {
   const token = process.env.PRINTIFY_API_TOKEN?.trim();
   const listShops = process.argv.includes("--list-shops");
   const listColors = process.argv.includes("--list-colors");
+  const intake = process.argv.includes("--intake");
 
   if (!token) {
     console.error(
@@ -446,19 +500,97 @@ async function main() {
   const products = await listAllProducts(token, shopId);
   console.log(`Found ${products.length} product(s).`);
 
-  if (listColors) {
-    console.log("\nAvailable mockup colors (edit src/data/mockup-colors.ts):\n");
+  if (listColors || intake) {
+    const knownSlugs = new Set(existingProducts.map((p) => p.slug));
     const usedSlugs = new Set<string>();
+    const rows: Array<{
+      slug: string;
+      title: string;
+      colors: string[];
+      tags: string[];
+      preferred?: string;
+      isNew: boolean;
+      isHidden: boolean;
+    }> = [];
+
     for (const product of products) {
+      // Still list hidden for awareness, but don't treat them as intake work.
       let slug = slugify(product.title) || `product-${product.id.slice(-6)}`;
       if (usedSlugs.has(slug)) slug = `${slug}-${product.id.slice(-4)}`;
       usedSlugs.add(slug);
-      const colors = listProductColors(product.variants);
-      const preferred = mockupColors[slug];
-      const pickNote = preferred ? `  → currently: "${preferred}"` : "";
-      console.log(`  ${slug}`);
-      console.log(`    ${product.title}`);
-      console.log(`    colors: ${colors.join(", ") || "(none)"}${pickNote}`);
+      rows.push({
+        slug,
+        title: product.title,
+        colors: listProductColors(product.variants),
+        tags: product.tags ?? [],
+        preferred: mockupColors[slug],
+        isNew: !knownSlugs.has(slug),
+        isHidden: product.visible === false,
+      });
+    }
+
+    if (intake) {
+      const visibleRows = rows.filter((r) => !r.isHidden);
+      const newcomers = visibleRows.filter((r) => r.isNew);
+      const needsColor = visibleRows.filter((r) => !r.preferred);
+      const missingTags = visibleRows.filter((r) => r.tags.length === 0);
+      const hidden = rows.filter((r) => r.isHidden);
+
+      console.log("\n=== Shirt intake (read-only) ===\n");
+      console.log(`In Printify: ${rows.length}`);
+      console.log(`Visible (on-site candidates): ${visibleRows.length}`);
+      console.log(`Hidden in Printify (excluded): ${hidden.length}`);
+      console.log(`Already on site: ${visibleRows.length - newcomers.length}`);
+      console.log(`NEW (not synced yet): ${newcomers.length}`);
+      console.log(`Missing main color pick: ${needsColor.length}`);
+      console.log(`Missing Printify tags: ${missingTags.length}`);
+
+      const printRow = (r: (typeof rows)[number]) => {
+        const colorNote = r.preferred
+          ? `main: "${r.preferred}"`
+          : "main: (pick in mockup-colors.ts)";
+        console.log(`\n  ${r.slug}${r.isNew ? "  ★ NEW" : ""}`);
+        console.log(`    ${r.title}`);
+        console.log(`    colors: ${r.colors.join(", ") || "(none)"}`);
+        console.log(`    ${colorNote}`);
+        console.log(`    tags: ${r.tags.length ? r.tags.join(", ") : "(none)"}`);
+      };
+
+      if (hidden.length > 0) {
+        console.log("\n--- Hidden in Printify (will not appear on site) ---");
+        for (const r of hidden) {
+          console.log(`  ${r.title}`);
+        }
+      }
+
+      if (newcomers.length > 0) {
+        console.log("\n--- NEW shirts (pick a main color for each) ---");
+        for (const r of newcomers) printRow(r);
+      }
+
+      const existingNeedsColor = needsColor.filter((r) => !r.isNew);
+      if (existingNeedsColor.length > 0) {
+        console.log("\n--- Already on site, still need a main color ---");
+        for (const r of existingNeedsColor) printRow(r);
+      }
+
+      console.log(`\nNext:
+  1. Edit src/data/mockup-colors.ts with a main color per ★ NEW slug
+  2. Optional: product-order.ts + etsy-urls.ts
+  3. npm run sync:printify   ← cutouts + all colors + catalog write
+`);
+      return;
+    }
+
+    console.log("\nAvailable mockup colors (edit src/data/mockup-colors.ts):\n");
+    for (const r of rows) {
+      const pickNote = r.preferred ? `  → currently: "${r.preferred}"` : "";
+      console.log(`  ${r.slug}`);
+      console.log(`    ${r.title}`);
+      console.log(`    colors: ${r.colors.join(", ") || "(none)"}${pickNote}`);
+      if (r.tags.length > 0) {
+        console.log(`    tags: ${r.tags.join(", ")}`);
+      }
     }
     return;
   }
@@ -484,37 +616,43 @@ async function main() {
     imageSrc: string;
     imageBackSrc?: string;
     imageAlt: string;
+    colors: SyncedColor[];
+    tags: string[];
+    createdAt?: string;
   }[] = [];
 
-  for (const product of products) {
-    let slug = slugify(product.title) || `product-${product.id.slice(-6)}`;
-    if (usedSlugs.has(slug)) {
-      slug = `${slug}-${product.id.slice(-4)}`;
-    }
-    usedSlugs.add(slug);
+  const cutModeForColor = (colorName: string) =>
+    /white|cream|sky blue|powder blue|natural|blonde|carolina/i.test(colorName)
+      ? ("white" as const)
+      : ("auto" as const);
 
-    const preferredColor = mockupColors[slug];
-    const { ids: colorIds, matchedColor, sampleId } = matchColorVariantIds(
-      product.variants,
-      preferredColor,
-    );
-    if (preferredColor && colorIds.size === 0) {
-      const available = listProductColors(product.variants).join(", ");
-      console.warn(
-        `  warn (${product.title}): no color matching "${preferredColor}" — using default. Available: ${available || "(none)"}`,
-      );
-    }
+  const colorMatchesPreferred = (colorName: string, preferred?: string) => {
+    if (!preferred) return false;
+    const a = colorName.toLowerCase();
+    const b = preferred.toLowerCase();
+    return a === b || a.includes(b) || b.includes(a);
+  };
 
-    const allImages = product.images ?? [];
-    const coloredImages = imagesForPreferredColor(
-      allImages,
-      colorIds,
-      sampleId,
+  /** Download + cut one color into public/shirts (preferred uses legacy paths). */
+  async function syncColorMockups(opts: {
+    slug: string;
+    colorName: string;
+    useLegacyPaths: boolean;
+    allImages: PrintifyImage[];
+    variants: PrintifyVariant[] | undefined;
+  }): Promise<SyncedColor | undefined> {
+    const { slug, colorName, useLegacyPaths, allImages, variants } = opts;
+    const { ids, matchedColor, sampleId } = matchColorVariantIds(
+      variants,
+      colorName === "Default" ? undefined : colorName,
     );
-    const usedColorPick = colorIds.size > 0 && coloredImages !== allImages;
+    const label = matchedColor ?? (colorName === "Default" ? "Default" : colorName);
+    const coloredImages =
+      ids.size > 0
+        ? imagesForPreferredColor(allImages, ids, sampleId)
+        : allImages;
+    const usedColorPick = ids.size > 0 && coloredImages !== allImages;
     let front = pickFront(coloredImages, !usedColorPick);
-    // Pin the front URL to the preferred size sample (usually L) so front/back
-    // resolve to the exact same Printify color variant id.
     if (front && sampleId != null && mockupUrlVariantId(front.src) !== sampleId) {
       front = {
         ...front,
@@ -522,76 +660,150 @@ async function main() {
         is_default: false,
       };
     }
-    const { image: back, synthesized: backSynthesized } = resolveBackImage(
+    if (!front?.src && colorName === "Default") {
+      front = pickFront(allImages, true);
+    }
+    if (!front?.src) return undefined;
+
+    const { image: back } = resolveBackImage(
       coloredImages,
       allImages,
       front,
       frontToBackCamera,
     );
-    const priceCents = pickPriceCents(product.variants);
-    const colorLabel = matchedColor ? `, ${matchedColor}` : "";
-    const frontVariant = front ? mockupUrlVariantId(front.src) : undefined;
-    const backVariant = back ? mockupUrlVariantId(back.src) : undefined;
-    if (
-      frontVariant != null &&
-      backVariant != null &&
-      frontVariant !== backVariant
-    ) {
-      console.warn(
-        `  warn (${product.title}): front/back color mismatch (${frontVariant} vs ${backVariant})`,
-      );
-    }
 
-    if (!front?.src) {
-      console.warn(`  skip (no front image): ${product.title}`);
-      continue;
-    }
-    if (!priceCents) {
-      console.warn(`  warn (no price): ${product.title}`);
-    }
-
-    // Download raw mockup, then cut out the white studio backdrop → PNG.
-    // Near-white fabrics need pure-white flood so yarn texture isn't eaten.
-    // Dyed colors (incl. pink) use the gray-fringe flood for cleaner edges.
-    const cutMode =
-      /white|cream|sky blue|powder blue|natural|blonde|carolina/i.test(
-        matchedColor ?? preferredColor ?? "",
-      )
-        ? "white"
-        : "auto";
-    const frontFile = `${slug}-front.png`;
+    const colorSlug = slugify(label) || "color";
+    const fileBase = useLegacyPaths ? slug : `${slug}--${colorSlug}`;
+    const cutMode = cutModeForColor(label);
+    const frontFile = `${fileBase}-front.png`;
     const frontPath = path.join(SHIRTS_DIR, frontFile);
-    const frontTmp = path.join(SHIRTS_DIR, `${slug}-front.download`);
+    const frontTmp = path.join(SHIRTS_DIR, `${fileBase}-front.download`);
     await downloadImage(front.src, frontTmp);
     await cutoutShirt(frontTmp, frontPath, { mode: cutMode });
     fs.unlinkSync(frontTmp);
 
-    let imageBackSrc: string | undefined;
+    let backSrc: string | undefined;
     if (back?.src) {
-      const backFile = `${slug}-back.png`;
+      const backFile = `${fileBase}-back.png`;
       const backPath = path.join(SHIRTS_DIR, backFile);
-      const backTmp = path.join(SHIRTS_DIR, `${slug}-back.download`);
+      const backTmp = path.join(SHIRTS_DIR, `${fileBase}-back.download`);
       try {
         await downloadImage(back.src, backTmp);
         await cutoutShirt(backTmp, backPath, { mode: cutMode });
         fs.unlinkSync(backTmp);
-        imageBackSrc = `/shirts/${backFile}`;
-        const via = backSynthesized ? ", via CDN" : "";
-        console.log(
-          `  ✓ ${product.title} (front + back${via}${colorLabel}, $${(priceCents / 100).toFixed(2)})`,
-        );
+        backSrc = `/shirts/${backFile}`;
       } catch (err) {
         if (fs.existsSync(backTmp)) fs.unlinkSync(backTmp);
         console.warn(
-          `  ✓ ${product.title} (front only${colorLabel} — back download failed, $${(priceCents / 100).toFixed(2)})`,
+          `    warn (${slug} / ${label}): back failed — ${
+            err instanceof Error ? err.message : String(err)
+          }`,
         );
-        console.warn(`    ${err instanceof Error ? err.message : String(err)}`);
       }
-    } else {
-      console.log(
-        `  ✓ ${product.title} (front only${colorLabel} — no back mockup, $${(priceCents / 100).toFixed(2)})`,
-      );
     }
+
+    return { name: label, frontSrc: `/shirts/${frontFile}`, backSrc };
+  }
+
+  for (const product of products) {
+    // Printify "Hidden" products (not Published / Unpublished) use visible: false.
+    // Keep them off the storefront entirely.
+    if (product.visible === false) {
+      console.log(`  · skip hidden: ${product.title}`);
+      continue;
+    }
+
+    let slug = slugify(product.title) || `product-${product.id.slice(-6)}`;
+    if (usedSlugs.has(slug)) {
+      slug = `${slug}-${product.id.slice(-4)}`;
+    }
+    usedSlugs.add(slug);
+
+    const preferredColor = mockupColors[slug];
+    const availableColors = listProductColors(product.variants);
+    if (preferredColor && availableColors.length > 0) {
+      const { ids } = matchColorVariantIds(product.variants, preferredColor);
+      if (ids.size === 0) {
+        console.warn(
+          `  warn (${product.title}): no color matching "${preferredColor}" — using default. Available: ${availableColors.join(", ") || "(none)"}`,
+        );
+      }
+    }
+
+    const priceCents = pickPriceCents(product.variants);
+    if (!priceCents) {
+      console.warn(`  warn (no price): ${product.title}`);
+    }
+
+    const allImages = product.images ?? [];
+    const orderedColors = [...availableColors].sort((a, b) => {
+      const ap = colorMatchesPreferred(a, preferredColor);
+      const bp = colorMatchesPreferred(b, preferredColor);
+      if (ap && !bp) return -1;
+      if (!ap && bp) return 1;
+      return a.localeCompare(b);
+    });
+    const colorsToSync =
+      orderedColors.length > 0 ? orderedColors : ["Default"];
+
+    const syncedColors: SyncedColor[] = [];
+    let usedLegacy = false;
+    for (const colorName of colorsToSync) {
+      const useLegacyPaths =
+        !usedLegacy &&
+        (syncedColors.length === 0 ||
+          colorMatchesPreferred(colorName, preferredColor));
+      try {
+        const synced = await syncColorMockups({
+          slug,
+          colorName,
+          useLegacyPaths,
+          allImages,
+          variants: product.variants,
+        });
+        if (!synced) continue;
+        // Skip duplicate color labels (can happen if titles parse oddly).
+        if (syncedColors.some((c) => c.name.toLowerCase() === synced.name.toLowerCase())) {
+          continue;
+        }
+        if (useLegacyPaths) usedLegacy = true;
+        syncedColors.push(synced);
+      } catch (err) {
+        console.warn(
+          `    warn (${slug} / ${colorName}): ${
+            err instanceof Error ? err.message : String(err)
+          }`,
+        );
+      }
+    }
+
+    if (syncedColors.length === 0) {
+      console.warn(`  skip (no front image): ${product.title}`);
+      continue;
+    }
+
+    // Preferred color first in the gallery when present.
+    const prefIdx = preferredColor
+      ? syncedColors.findIndex((c) => colorMatchesPreferred(c.name, preferredColor))
+      : 0;
+    if (prefIdx > 0) {
+      const [pref] = syncedColors.splice(prefIdx, 1);
+      syncedColors.unshift(pref);
+    }
+
+    const listing = syncedColors[0];
+    console.log(
+      `  ✓ ${product.title} (${listing.backSrc ? "front + back" : "front only"}, ${syncedColors.length} color(s), $${(priceCents / 100).toFixed(2)})`,
+    );
+
+    // Normalize tags for stable filtering (trim, drop empties, de-dupe).
+    const tags = [
+      ...new Set(
+        (product.tags ?? [])
+          .map((t) => t.trim())
+          .filter(Boolean),
+      ),
+    ];
 
     rows.push({
       slug,
@@ -599,9 +811,12 @@ async function main() {
       name: product.title,
       description: "",
       priceCents,
-      imageSrc: `/shirts/${frontFile}`,
-      imageBackSrc,
+      imageSrc: listing.frontSrc,
+      imageBackSrc: listing.backSrc,
       imageAlt: `${product.title} mockup`,
+      colors: syncedColors,
+      tags,
+      createdAt: product.created_at,
     });
   }
 
@@ -627,6 +842,24 @@ ${rows
     const etsyExpr = listing
       ? `etsyUrls["${escapeTsString(p.slug)}"]`
       : "ETSY_SHOP_URL";
+    const colorsBlock = p.colors
+      .map((c) => {
+        const cBack = c.backSrc
+          ? `,\n        backSrc: "${escapeTsString(c.backSrc)}"`
+          : "";
+        return `      {
+        name: "${escapeTsString(c.name)}",
+        frontSrc: "${escapeTsString(c.frontSrc)}"${cBack}
+      }`;
+      })
+      .join(",\n");
+    const tagsBlock =
+      p.tags.length > 0
+        ? `\n    tags: [${p.tags.map((t) => `"${escapeTsString(t)}"`).join(", ")}],`
+        : "";
+    const createdBlock = p.createdAt
+      ? `\n    createdAt: "${escapeTsString(p.createdAt)}",`
+      : "";
     return `  {
     slug: "${escapeTsString(p.slug)}",
     printifyId: "${escapeTsString(p.printifyId)}",
@@ -635,6 +868,9 @@ ${rows
     priceCents: ${p.priceCents},
     imageSrc: "${escapeTsString(p.imageSrc)}",${backLine}
     imageAlt: "${escapeTsString(p.imageAlt)}",
+    colors: [
+${colorsBlock}
+    ],${tagsBlock}${createdBlock}
     etsyUrl: ${etsyExpr},
     isPlaceholder: false,
   }`;

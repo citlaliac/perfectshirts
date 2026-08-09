@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type ShirtPhotoProps = {
@@ -8,24 +9,25 @@ type ShirtPhotoProps = {
   frontSrc: string;
   backSrc?: string;
   alt: string;
-  /** Clicking the photo opens this Etsy URL in a new tab. */
-  etsyUrl: string;
+  /** Opens the shirt detail page (bigger gallery). */
+  detailHref: string;
 };
 
-/** Front for 8s, back for 8s, repeat on phones / touch devices. */
-const MOBILE_FLIP_MS = 8_000;
+/** Mobile listing flip: front longer, back a quick peek, then repeat. */
+const MOBILE_FRONT_MS = 4_000;
+const MOBILE_BACK_MS = 2_000;
 
 /**
- * Shirt photo that links to Etsy on click.
+ * Listing card photo → detail page on click.
  * Desktop (mouse): hover shows the back.
- * Mobile / touch: auto-flips front ↔ back every 8 seconds.
+ * Mobile / touch: front 4s → back 2s → front 4s… (always starts on front).
  */
 export function ShirtPhoto({
   name,
   frontSrc,
   backSrc,
   alt,
-  etsyUrl,
+  detailHref,
 }: ShirtPhotoProps) {
   const [showBack, setShowBack] = useState(false);
   const [autoFlip, setAutoFlip] = useState(false);
@@ -47,28 +49,40 @@ export function ShirtPhoto({
     };
   }, []);
 
-  // Front → wait 8s → back → wait 8s → front… forever while auto-flip is on.
+  // Always begin on the front, then alternate with unequal dwell times.
   useEffect(() => {
     if (!hasBack || !autoFlip) {
       setShowBack(false);
       return;
     }
 
+    let cancelled = false;
+    let timeoutId = 0;
     setShowBack(false);
-    const id = window.setInterval(() => {
-      setShowBack((showingBack) => !showingBack);
-    }, MOBILE_FLIP_MS);
 
-    return () => window.clearInterval(id);
+    const schedule = (showingBack: boolean) => {
+      const delay = showingBack ? MOBILE_BACK_MS : MOBILE_FRONT_MS;
+      timeoutId = window.setTimeout(() => {
+        if (cancelled) return;
+        const next = !showingBack;
+        setShowBack(next);
+        schedule(next);
+      }, delay);
+    };
+
+    schedule(false);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
   }, [hasBack, autoFlip]);
 
   return (
-    <a
+    <Link
       className={`shirt-photo-link${showBack && hasBack ? " is-showing-back" : ""}`}
-      href={etsyUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Buy ${name} on Etsy`}
+      href={detailHref}
+      aria-label={`View ${name} details`}
       onMouseEnter={() => {
         if (hasBack && !autoFlip) setShowBack(true);
       }}
@@ -95,6 +109,6 @@ export function ShirtPhoto({
           aria-hidden={!showBack}
         />
       ) : null}
-    </a>
+    </Link>
   );
 }

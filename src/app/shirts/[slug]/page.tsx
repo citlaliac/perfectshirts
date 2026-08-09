@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
-import { ShirtPhoto } from "@/components/ShirtPhoto";
+import { ShirtDetailGallery } from "@/components/ShirtDetailGallery";
 import {
   formatPrice,
   getAllProducts,
   getProductBySlug,
+  getProductColors,
 } from "@/lib/products";
 
 type ShirtPageProps = {
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: ShirtPageProps) {
   };
 }
 
+/** Bigger shirt page: swipe colors / front-back, then buy on Etsy. */
 export default async function ShirtPage({ params }: ShirtPageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
@@ -38,6 +40,8 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
     notFound();
   }
 
+  const colors = getProductColors(product);
+
   return (
     <main>
       <p>
@@ -45,18 +49,8 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
       </p>
 
       <article className="shirt-detail">
-        <h2 className="shirt-name">
-          <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
-            {product.name}
-          </a>
-        </h2>
-        <ShirtPhoto
-          name={product.name}
-          frontSrc={product.imageSrc}
-          backSrc={product.imageBackSrc}
-          alt={product.imageAlt}
-          etsyUrl={product.etsyUrl}
-        />
+        <h2 className="shirt-name">{product.name}</h2>
+        <ShirtDetailGallery name={product.name} colors={colors} />
         <p className="shirt-price">
           <b>Price:</b> {formatPrice(product.priceCents)}
         </p>

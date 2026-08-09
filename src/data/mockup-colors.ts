@@ -38,4 +38,21 @@ export const mockupColors: Record<string, string> = {
   "subtle-pope-cec-shirt": "navy",
   "the-candy-man-must": "blonde",
   "food-spilling-shirt": "black",
+
+  // 2026-08 intake
+  "pumpkin-balloon-halloween-large-design": "white",
+  "pumpkin-balloon-halloween-shirt-small-logo": "orange",
+  "sun-moon-on-horseback": "white",
+  "beetle-tee-long-distressed": "peach",
+  "cute-eyes-long-distressed-tee": "mustard",
+  "saturn-eyes-long-distressed-tee": "washed denim",
+  "pope-cec-shirt-smaller-logo": "burgundy",
+
+  "pumpkin-peeps": "black",
+  "16th-century-sun-tee": "black",
+  "british-creed": "blonde",
+  "girl-meat-for-the-capitalist-machine": "burgundy",
+  "tepeyollotl-tee": "blonde",
+  "sun-moon-city": "sky blue",
+  "catholic-ecloud-chest-logo-frog": "pink",
 };

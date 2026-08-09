@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Product } from "@/data/product-types";
 import { formatPrice } from "@/lib/products";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
@@ -8,15 +9,16 @@ type ShirtListingProps = {
 };
 
 /**
- * Legal-pad shirt block: name, photo (hover / mobile flip), price, Etsy.
+ * Legal-pad shirt block: name + photo open the detail page; Etsy stays a buy CTA.
+ * Layout is sized so every card in the grid matches height.
  */
 export function ShirtListing({ product }: ShirtListingProps) {
+  const detailHref = `/shirts/${product.slug}/`;
+
   return (
     <article className="shirt-box" id={product.slug}>
       <h2 className="shirt-name">
-        <a href={product.etsyUrl} target="_blank" rel="noopener noreferrer">
-          {product.name}
-        </a>
+        <Link href={detailHref}>{product.name}</Link>
       </h2>
       {product.isPlaceholder ? (
         <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>
@@ -26,12 +28,14 @@ export function ShirtListing({ product }: ShirtListingProps) {
         frontSrc={product.imageSrc}
         backSrc={product.imageBackSrc}
         alt={product.imageAlt}
-        etsyUrl={product.etsyUrl}
+        detailHref={detailHref}
       />
-      <p className="shirt-price">
-        <b>Price:</b> {formatPrice(product.priceCents)}
-      </p>
-      <BuyOnEtsyLink product={product} />
+      <div className="shirt-box-footer">
+        <p className="shirt-price">
+          <b>Price:</b> {formatPrice(product.priceCents)}
+        </p>
+        <BuyOnEtsyLink product={product} />
+      </div>
     </article>
   );
 }

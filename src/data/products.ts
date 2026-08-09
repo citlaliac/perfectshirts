@@ -12,6 +12,283 @@ export { ETSY_SHOP_URL } from "./product-types";
 
 export const products: Product[] = [
   {
+    slug: "british-creed",
+    printifyId: "6a77ce087b7da036a200c7f5",
+    name: "British Creed",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/british-creed-front.png",
+    imageBackSrc: "/shirts/british-creed-back.png",
+    imageAlt: "British Creed mockup",
+    colors: [
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/british-creed-front.png",
+        backSrc: "/shirts/british-creed-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/british-creed--dark-grey-front.png",
+        backSrc: "/shirts/british-creed--dark-grey-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/british-creed--khaki-front.png",
+        backSrc: "/shirts/british-creed--khaki-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/british-creed--navy-front.png",
+        backSrc: "/shirts/british-creed--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/british-creed--pink-front.png",
+        backSrc: "/shirts/british-creed--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/british-creed--white-front.png",
+        backSrc: "/shirts/british-creed--white-back.png"
+      }
+    ],
+    tags: ["shaka", "cotton", "back", "t-shirt", "artistic", "text"],
+    createdAt: "2026-08-09 00:47:04+00:00",
+    etsyUrl: etsyUrls["british-creed"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "pumpkin-balloon-halloween-large-design",
+    printifyId: "6a77c7fb630e37e016080ad7",
+    name: "Pumpkin Balloon Halloween - large design",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/pumpkin-balloon-halloween-large-design-front.png",
+    imageBackSrc: "/shirts/pumpkin-balloon-halloween-large-design-back.png",
+    imageAlt: "Pumpkin Balloon Halloween - large design mockup",
+    colors: [
+      {
+        name: "White",
+        frontSrc: "/shirts/pumpkin-balloon-halloween-large-design-front.png",
+        backSrc: "/shirts/pumpkin-balloon-halloween-large-design-back.png"
+      },
+      {
+        name: "Orange",
+        frontSrc: "/shirts/pumpkin-balloon-halloween-large-design--orange-front.png",
+        backSrc: "/shirts/pumpkin-balloon-halloween-large-design--orange-back.png"
+      }
+    ],
+    tags: ["shaka", "cotton", "t-shirt", "halloween", "seasonal", "artistic"],
+    createdAt: "2026-08-09 00:21:15+00:00",
+    etsyUrl: etsyUrls["pumpkin-balloon-halloween-large-design"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "pumpkin-balloon-halloween-shirt-small-logo",
+    printifyId: "6a77b96546363c0e160b9e1b",
+    name: "Pumpkin Balloon Halloween Shirt - Small logo",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo-front.png",
+    imageBackSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo-back.png",
+    imageAlt: "Pumpkin Balloon Halloween Shirt - Small logo mockup",
+    colors: [
+      {
+        name: "Orange",
+        frontSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo-front.png",
+        backSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo--white-front.png",
+        backSrc: "/shirts/pumpkin-balloon-halloween-shirt-small-logo--white-back.png"
+      }
+    ],
+    tags: ["shaka", "cotton", "t-shirt", "seasonal", "halloween", "fall", "artistic"],
+    createdAt: "2026-08-08 23:19:01+00:00",
+    etsyUrl: etsyUrls["pumpkin-balloon-halloween-shirt-small-logo"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "pumpkin-peeps",
+    printifyId: "6a77b39a997ad417650b1edc",
+    name: "Pumpkin Peeps",
+    description: "",
+    priceCents: 3100,
+    imageSrc: "/shirts/pumpkin-peeps-front.png",
+    imageBackSrc: "/shirts/pumpkin-peeps-back.png",
+    imageAlt: "Pumpkin Peeps mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/pumpkin-peeps-front.png",
+        backSrc: "/shirts/pumpkin-peeps-back.png"
+      }
+    ],
+    createdAt: "2026-08-08 22:54:18+00:00",
+    etsyUrl: etsyUrls["pumpkin-peeps"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "girl-meat-for-the-capitalist-machine",
+    printifyId: "6a77a9c61b7d9c2c780fae5d",
+    name: "Girl Meat for the Capitalist Machine",
+    description: "",
+    priceCents: 3300,
+    imageSrc: "/shirts/girl-meat-for-the-capitalist-machine-front.png",
+    imageBackSrc: "/shirts/girl-meat-for-the-capitalist-machine-back.png",
+    imageAlt: "Girl Meat for the Capitalist Machine mockup",
+    colors: [
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/girl-meat-for-the-capitalist-machine-front.png",
+        backSrc: "/shirts/girl-meat-for-the-capitalist-machine-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/girl-meat-for-the-capitalist-machine--blonde-front.png",
+        backSrc: "/shirts/girl-meat-for-the-capitalist-machine--blonde-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/girl-meat-for-the-capitalist-machine--pink-front.png",
+        backSrc: "/shirts/girl-meat-for-the-capitalist-machine--pink-back.png"
+      },
+      {
+        name: "Red",
+        frontSrc: "/shirts/girl-meat-for-the-capitalist-machine--red-front.png",
+        backSrc: "/shirts/girl-meat-for-the-capitalist-machine--red-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/girl-meat-for-the-capitalist-machine--white-front.png",
+        backSrc: "/shirts/girl-meat-for-the-capitalist-machine--white-back.png"
+      }
+    ],
+    tags: ["shaka", "cotton", "artistic", "t-shirt"],
+    createdAt: "2026-08-08 22:12:22+00:00",
+    etsyUrl: etsyUrls["girl-meat-for-the-capitalist-machine"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "sun-moon-on-horseback",
+    printifyId: "6a77a7669edc0cc5e0029c36",
+    name: "Sun Moon on Horseback",
+    description: "",
+    priceCents: 4600,
+    imageSrc: "/shirts/sun-moon-on-horseback-front.png",
+    imageBackSrc: "/shirts/sun-moon-on-horseback-back.png",
+    imageAlt: "Sun Moon on Horseback mockup",
+    colors: [
+      {
+        name: "White",
+        frontSrc: "/shirts/sun-moon-on-horseback-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/sun-moon-on-horseback--black-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback--black-back.png"
+      },
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/sun-moon-on-horseback--burgundy-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback--burgundy-back.png"
+      }
+    ],
+    tags: ["shaka", "cotton", "t-shirt", "back", "artistic"],
+    createdAt: "2026-08-08 22:02:14+00:00",
+    etsyUrl: etsyUrls["sun-moon-on-horseback"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "tepeyollotl-tee",
+    printifyId: "6a77a684aa493c8986097db7",
+    name: "Tepeyollotl Tee",
+    description: "",
+    priceCents: 3048,
+    imageSrc: "/shirts/tepeyollotl-tee-front.png",
+    imageBackSrc: "/shirts/tepeyollotl-tee-back.png",
+    imageAlt: "Tepeyollotl Tee mockup",
+    colors: [
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/tepeyollotl-tee-front.png",
+        backSrc: "/shirts/tepeyollotl-tee-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/tepeyollotl-tee--white-front.png",
+        backSrc: "/shirts/tepeyollotl-tee--white-back.png"
+      }
+    ],
+    tags: ["cotton", "t-shirt", "shaka", "artistic"],
+    createdAt: "2026-08-08 21:58:25+00:00",
+    etsyUrl: etsyUrls["tepeyollotl-tee"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "sun-moon-city",
+    printifyId: "6a779e721e8eb99c7c088159",
+    name: "Sun Moon City",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/sun-moon-city-front.png",
+    imageBackSrc: "/shirts/sun-moon-city-back.png",
+    imageAlt: "Sun Moon City mockup",
+    colors: [
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/sun-moon-city-front.png",
+        backSrc: "/shirts/sun-moon-city-back.png"
+      },
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/sun-moon-city--burgundy-front.png",
+        backSrc: "/shirts/sun-moon-city--burgundy-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/sun-moon-city--dark-grey-front.png",
+        backSrc: "/shirts/sun-moon-city--dark-grey-back.png"
+      },
+      {
+        name: "Hunter Green",
+        frontSrc: "/shirts/sun-moon-city--hunter-green-front.png",
+        backSrc: "/shirts/sun-moon-city--hunter-green-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/sun-moon-city--navy-front.png",
+        backSrc: "/shirts/sun-moon-city--navy-back.png"
+      }
+    ],
+    tags: ["T-shirts", "sun moon", "artistic", "back", "shaka", "cotton", "tie-dye"],
+    createdAt: "2026-08-08 21:24:02+00:00",
+    etsyUrl: etsyUrls["sun-moon-city"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "16th-century-sun-tee",
+    printifyId: "6a779e6a2965ce7e900877f3",
+    name: "16th Century Sun Tee",
+    description: "",
+    priceCents: 4800,
+    imageSrc: "/shirts/16th-century-sun-tee-front.png",
+    imageBackSrc: "/shirts/16th-century-sun-tee-back.png",
+    imageAlt: "16th Century Sun Tee mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/16th-century-sun-tee-front.png",
+        backSrc: "/shirts/16th-century-sun-tee-back.png"
+      }
+    ],
+    createdAt: "2026-08-08 21:23:54+00:00",
+    etsyUrl: etsyUrls["16th-century-sun-tee"],
+    isPlaceholder: false,
+  },
+  {
     slug: "artistic-meat-for-the-capitalist-machine",
     printifyId: "6a72a03bceeb733b6b0d37e1",
     name: "Artistic Meat for the Capitalist Machine",
@@ -20,7 +297,36 @@ export const products: Product[] = [
     imageSrc: "/shirts/artistic-meat-for-the-capitalist-machine-front.png",
     imageBackSrc: "/shirts/artistic-meat-for-the-capitalist-machine-back.png",
     imageAlt: "Artistic Meat for the Capitalist Machine mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--blonde-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--blonde-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--pink-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--pink-back.png"
+      },
+      {
+        name: "Red",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--red-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--red-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--white-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--white-back.png"
+      }
+    ],
+    tags: ["shaka", "fashion", "art", "cotton", "s-shirt"],
+    createdAt: "2026-08-05 02:30:19+00:00",
+    etsyUrl: etsyUrls["artistic-meat-for-the-capitalist-machine"],
     isPlaceholder: false,
   },
   {
@@ -32,7 +338,20 @@ export const products: Product[] = [
     imageSrc: "/shirts/all-i-got-was-this-perfect-shirt-front.png",
     imageBackSrc: "/shirts/all-i-got-was-this-perfect-shirt-back.png",
     imageAlt: "All I got was this perfect shirt mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "White",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-back.png"
+      },
+      {
+        name: "Orange",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt--orange-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt--orange-back.png"
+      }
+    ],
+    createdAt: "2026-08-05 02:21:16+00:00",
+    etsyUrl: etsyUrls["all-i-got-was-this-perfect-shirt"],
     isPlaceholder: false,
   },
   {
@@ -44,7 +363,40 @@ export const products: Product[] = [
     imageSrc: "/shirts/purrrfect-shirts-front.png",
     imageBackSrc: "/shirts/purrrfect-shirts-back.png",
     imageAlt: "Purrrfect Shirts mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/purrrfect-shirts-front.png",
+        backSrc: "/shirts/purrrfect-shirts-back.png"
+      },
+      {
+        name: "Brown",
+        frontSrc: "/shirts/purrrfect-shirts--brown-front.png",
+        backSrc: "/shirts/purrrfect-shirts--brown-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/purrrfect-shirts--dark-grey-front.png",
+        backSrc: "/shirts/purrrfect-shirts--dark-grey-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/purrrfect-shirts--pink-front.png",
+        backSrc: "/shirts/purrrfect-shirts--pink-back.png"
+      },
+      {
+        name: "Tiffany Blue",
+        frontSrc: "/shirts/purrrfect-shirts--tiffany-blue-front.png",
+        backSrc: "/shirts/purrrfect-shirts--tiffany-blue-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/purrrfect-shirts--white-front.png",
+        backSrc: "/shirts/purrrfect-shirts--white-back.png"
+      }
+    ],
+    createdAt: "2026-08-05 01:53:30+00:00",
+    etsyUrl: etsyUrls["purrrfect-shirts"],
     isPlaceholder: false,
   },
   {
@@ -56,7 +408,30 @@ export const products: Product[] = [
     imageSrc: "/shirts/beach-day-tee-front.png",
     imageBackSrc: "/shirts/beach-day-tee-back.png",
     imageAlt: "Beach day tee! mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "White",
+        frontSrc: "/shirts/beach-day-tee-front.png",
+        backSrc: "/shirts/beach-day-tee-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/beach-day-tee--blonde-front.png",
+        backSrc: "/shirts/beach-day-tee--blonde-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/beach-day-tee--khaki-front.png",
+        backSrc: "/shirts/beach-day-tee--khaki-back.png"
+      },
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/beach-day-tee--sky-blue-front.png",
+        backSrc: "/shirts/beach-day-tee--sky-blue-back.png"
+      }
+    ],
+    createdAt: "2026-08-05 01:17:06+00:00",
+    etsyUrl: etsyUrls["beach-day-tee"],
     isPlaceholder: false,
   },
   {
@@ -68,7 +443,15 @@ export const products: Product[] = [
     imageSrc: "/shirts/pink-flowers-shirt-front.png",
     imageBackSrc: "/shirts/pink-flowers-shirt-back.png",
     imageAlt: "pink flowers shirt mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Purple",
+        frontSrc: "/shirts/pink-flowers-shirt-front.png",
+        backSrc: "/shirts/pink-flowers-shirt-back.png"
+      }
+    ],
+    createdAt: "2026-08-05 00:58:24+00:00",
+    etsyUrl: etsyUrls["pink-flowers-shirt"],
     isPlaceholder: false,
   },
   {
@@ -80,7 +463,15 @@ export const products: Product[] = [
     imageSrc: "/shirts/amazing-melons-front.png",
     imageBackSrc: "/shirts/amazing-melons-back.png",
     imageAlt: "Amazing Melons mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/amazing-melons-front.png",
+        backSrc: "/shirts/amazing-melons-back.png"
+      }
+    ],
+    createdAt: "2026-08-05 00:28:56+00:00",
+    etsyUrl: etsyUrls["amazing-melons"],
     isPlaceholder: false,
   },
   {
@@ -92,19 +483,96 @@ export const products: Product[] = [
     imageSrc: "/shirts/catholic-ecloud-chest-logo-frog-front.png",
     imageBackSrc: "/shirts/catholic-ecloud-chest-logo-frog-back.png",
     imageAlt: "Catholic eCloud chest logo - Frog mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Pink",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--black-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--black-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--blonde-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--blonde-back.png"
+      },
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--burgundy-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--burgundy-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--dark-grey-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--navy-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--navy-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--white-back.png"
+      }
+    ],
+    createdAt: "2026-08-04 23:21:18+00:00",
+    etsyUrl: etsyUrls["catholic-ecloud-chest-logo-frog"],
     isPlaceholder: false,
   },
   {
-    slug: "subtle-pope-cec-shirt",
+    slug: "pope-cec-shirt-smaller-logo",
     printifyId: "6a7273c1ca843defe705d4f0",
-    name: "Subtle Pope CEC shirt",
+    name: "Pope CEC shirt - smaller logo",
     description: "",
     priceCents: 4325,
-    imageSrc: "/shirts/subtle-pope-cec-shirt-front.png",
-    imageBackSrc: "/shirts/subtle-pope-cec-shirt-back.png",
-    imageAlt: "Subtle Pope CEC shirt mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    imageSrc: "/shirts/pope-cec-shirt-smaller-logo-front.png",
+    imageBackSrc: "/shirts/pope-cec-shirt-smaller-logo-back.png",
+    imageAlt: "Pope CEC shirt - smaller logo mockup",
+    colors: [
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--black-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--black-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--blonde-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--blonde-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--dark-grey-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--navy-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--pink-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--white-front.png",
+        backSrc: "/shirts/pope-cec-shirt-smaller-logo--white-back.png"
+      }
+    ],
+    tags: ["cotton", "t-shirt", "catholic e cloud", "pope"],
+    createdAt: "2026-08-04 23:20:33+00:00",
+    etsyUrl: etsyUrls["pope-cec-shirt-smaller-logo"],
     isPlaceholder: false,
   },
   {
@@ -116,7 +584,50 @@ export const products: Product[] = [
     imageSrc: "/shirts/the-candy-man-must-front.png",
     imageBackSrc: "/shirts/the-candy-man-must-back.png",
     imageAlt: "The Candy Man Must mockup",
-    etsyUrl: ETSY_SHOP_URL,
+    colors: [
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/the-candy-man-must-front.png",
+        backSrc: "/shirts/the-candy-man-must-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/the-candy-man-must--black-front.png",
+        backSrc: "/shirts/the-candy-man-must--black-back.png"
+      },
+      {
+        name: "Burgundy",
+        frontSrc: "/shirts/the-candy-man-must--burgundy-front.png",
+        backSrc: "/shirts/the-candy-man-must--burgundy-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/the-candy-man-must--dark-grey-front.png",
+        backSrc: "/shirts/the-candy-man-must--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/the-candy-man-must--navy-front.png",
+        backSrc: "/shirts/the-candy-man-must--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/the-candy-man-must--pink-front.png",
+        backSrc: "/shirts/the-candy-man-must--pink-back.png"
+      },
+      {
+        name: "Purple",
+        frontSrc: "/shirts/the-candy-man-must--purple-front.png",
+        backSrc: "/shirts/the-candy-man-must--purple-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/the-candy-man-must--white-front.png",
+        backSrc: "/shirts/the-candy-man-must--white-back.png"
+      }
+    ],
+    createdAt: "2026-08-04 02:38:40+00:00",
+    etsyUrl: etsyUrls["the-candy-man-must"],
     isPlaceholder: false,
   },
   {
@@ -128,6 +639,35 @@ export const products: Product[] = [
     imageSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple-front.png",
     imageBackSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple-back.png",
     imageAlt: "Catholic eCloud Lamb Worshiper - simple mockup",
+    colors: [
+      {
+        name: "Natural",
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple-back.png"
+      },
+      {
+        name: "Maroon",
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--maroon-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--maroon-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--navy-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--pink-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--white-back.png"
+      }
+    ],
+    tags: ["catholic e cloud", "tshirt", "bella canvas", "lamb"],
+    createdAt: "2026-08-03 03:39:47+00:00",
     etsyUrl: etsyUrls["catholic-ecloud-lamb-worshiper-simple"],
     isPlaceholder: false,
   },
@@ -140,6 +680,34 @@ export const products: Product[] = [
     imageSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple-front.png",
     imageBackSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple-back.png",
     imageAlt: "Catholic eCloud Fairy Worshiper - simple mockup",
+    colors: [
+      {
+        name: "Pink",
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple-back.png"
+      },
+      {
+        name: "Maroon",
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--maroon-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--maroon-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--natural-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--natural-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--navy-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--navy-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--white-back.png"
+      }
+    ],
+    createdAt: "2026-08-03 03:39:36+00:00",
     etsyUrl: etsyUrls["catholic-ecloud-fairy-worshiper-simple"],
     isPlaceholder: false,
   },
@@ -152,6 +720,15 @@ export const products: Product[] = [
     imageSrc: "/shirts/i-am-not-irish-do-not-touch-me-front.png",
     imageBackSrc: "/shirts/i-am-not-irish-do-not-touch-me-back.png",
     imageAlt: "i am not irish do not touch me mockup",
+    colors: [
+      {
+        name: "Kelly Green",
+        frontSrc: "/shirts/i-am-not-irish-do-not-touch-me-front.png",
+        backSrc: "/shirts/i-am-not-irish-do-not-touch-me-back.png"
+      }
+    ],
+    tags: ["shaka", "seasonal", "t-shirt", "cotton"],
+    createdAt: "2026-08-03 03:26:36+00:00",
     etsyUrl: etsyUrls["i-am-not-irish-do-not-touch-me"],
     isPlaceholder: false,
   },
@@ -164,6 +741,40 @@ export const products: Product[] = [
     imageSrc: "/shirts/pope-of-the-catholic-ecloud-front.png",
     imageBackSrc: "/shirts/pope-of-the-catholic-ecloud-back.png",
     imageAlt: "Pope of the Catholic eCloud mockup",
+    colors: [
+      {
+        name: "Navy",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud--blonde-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud--blonde-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud--dark-grey-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud--dark-grey-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud--pink-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud--pink-back.png"
+      },
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud--sky-blue-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud--sky-blue-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/pope-of-the-catholic-ecloud--white-front.png",
+        backSrc: "/shirts/pope-of-the-catholic-ecloud--white-back.png"
+      }
+    ],
+    tags: ["catholic e cloud", "shaka", "cotton", "t-shirt", "pope"],
+    createdAt: "2026-08-03 03:12:17+00:00",
     etsyUrl: etsyUrls["pope-of-the-catholic-ecloud"],
     isPlaceholder: false,
   },
@@ -176,6 +787,40 @@ export const products: Product[] = [
     imageSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper-front.png",
     imageBackSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper-back.png",
     imageAlt: "Premium Catholic eCloud - Lamb Worshiper mockup",
+    colors: [
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--blonde-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--blonde-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--dark-grey-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--navy-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--pink-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--white-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--white-back.png"
+      }
+    ],
+    tags: ["shaka", "t-shirt", "cotton", "catholic e cloud"],
+    createdAt: "2026-08-03 03:05:23+00:00",
     etsyUrl: etsyUrls["premium-catholic-ecloud-lamb-worshiper"],
     isPlaceholder: false,
   },
@@ -188,6 +833,35 @@ export const products: Product[] = [
     imageSrc: "/shirts/catholic-ecloud-frog-worshiper-simple-front.png",
     imageBackSrc: "/shirts/catholic-ecloud-frog-worshiper-simple-back.png",
     imageAlt: "Catholic eCloud Frog Worshiper - simple mockup",
+    colors: [
+      {
+        name: "Natural",
+        frontSrc: "/shirts/catholic-ecloud-frog-worshiper-simple-front.png",
+        backSrc: "/shirts/catholic-ecloud-frog-worshiper-simple-back.png"
+      },
+      {
+        name: "Maroon",
+        frontSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--maroon-front.png",
+        backSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--maroon-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--navy-front.png",
+        backSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--pink-front.png",
+        backSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-frog-worshiper-simple--white-back.png"
+      }
+    ],
+    tags: ["bella canvas", "t-shirt", "catholid e cloud"],
+    createdAt: "2026-08-03 02:56:02+00:00",
     etsyUrl: etsyUrls["catholic-ecloud-frog-worshiper-simple"],
     isPlaceholder: false,
   },
@@ -196,10 +870,49 @@ export const products: Product[] = [
     printifyId: "6a70002445ec6e34120df2ce",
     name: "Premium Catholic eCloud - Frog Worshiper",
     description: "",
-    priceCents: 5000,
+    priceCents: 5500,
     imageSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-front.png",
     imageBackSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-back.png",
     imageAlt: "Premium Catholic eCloud - Frog Worshiper mockup",
+    colors: [
+      {
+        name: "Safety Green",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--blonde-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--blonde-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--dark-grey-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--navy-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--pink-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--pink-back.png"
+      },
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--sky-blue-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--sky-blue-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--white-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--white-back.png"
+      }
+    ],
+    tags: ["shaka", "t-shirt", "cotton", "catholic e cloud", "frog", "premium", "back"],
+    createdAt: "2026-08-03 02:42:44+00:00",
     etsyUrl: etsyUrls["premium-catholic-ecloud-frog-worshiper"],
     isPlaceholder: false,
   },
@@ -212,6 +925,40 @@ export const products: Product[] = [
     imageSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper-front.png",
     imageBackSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper-back.png",
     imageAlt: "Premium Catholic eCloud - FairyWorhsiper mockup",
+    colors: [
+      {
+        name: "Pink",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper-back.png"
+      },
+      {
+        name: "Blonde",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--blonde-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--blonde-back.png"
+      },
+      {
+        name: "Dark Grey",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--dark-grey-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--dark-grey-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--navy-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--navy-back.png"
+      },
+      {
+        name: "Sky Blue",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--sky-blue-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--sky-blue-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--white-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--white-back.png"
+      }
+    ],
+    tags: ["shaka", "t-shirt", "catholic e cloud", "fairy"],
+    createdAt: "2026-08-03 02:41:48+00:00",
     etsyUrl: etsyUrls["premium-catholic-ecloud-fairyworhsiper"],
     isPlaceholder: false,
   },
@@ -224,6 +971,20 @@ export const products: Product[] = [
     imageSrc: "/shirts/business-casualty-front.png",
     imageBackSrc: "/shirts/business-casualty-back.png",
     imageAlt: "Business Casualty mockup",
+    colors: [
+      {
+        name: "Jet Black",
+        frontSrc: "/shirts/business-casualty-front.png",
+        backSrc: "/shirts/business-casualty-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/business-casualty--white-front.png",
+        backSrc: "/shirts/business-casualty--white-back.png"
+      }
+    ],
+    tags: ["T-shirts", "Cotton", "business casualty"],
+    createdAt: "2026-08-02 21:58:24+00:00",
     etsyUrl: etsyUrls["business-casualty"],
     isPlaceholder: false,
   },
@@ -236,6 +997,20 @@ export const products: Product[] = [
     imageSrc: "/shirts/business-casual-tee-front.png",
     imageBackSrc: "/shirts/business-casual-tee-back.png",
     imageAlt: "Business Casual Tee mockup",
+    colors: [
+      {
+        name: "White",
+        frontSrc: "/shirts/business-casual-tee-front.png",
+        backSrc: "/shirts/business-casual-tee-back.png"
+      },
+      {
+        name: "Jet Black",
+        frontSrc: "/shirts/business-casual-tee--jet-black-front.png",
+        backSrc: "/shirts/business-casual-tee--jet-black-back.png"
+      }
+    ],
+    tags: ["T-shirts", "Cotton", "business casualty"],
+    createdAt: "2026-08-02 21:58:24+00:00",
     etsyUrl: etsyUrls["business-casual-tee"],
     isPlaceholder: false,
   },
@@ -244,10 +1019,34 @@ export const products: Product[] = [
     printifyId: "6a6fbd7f5804b494730a652b",
     name: "Cute Alan Greenspan Tee",
     description: "",
-    priceCents: 2500,
+    priceCents: 2600,
     imageSrc: "/shirts/cute-alan-greenspan-tee-front.png",
     imageBackSrc: "/shirts/cute-alan-greenspan-tee-back.png",
     imageAlt: "Cute Alan Greenspan Tee mockup",
+    colors: [
+      {
+        name: "Powder Blue",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-back.png"
+      },
+      {
+        name: "Cream",
+        frontSrc: "/shirts/cute-alan-greenspan-tee--cream-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee--cream-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/cute-alan-greenspan-tee--pink-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/cute-alan-greenspan-tee--white-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee--white-back.png"
+      }
+    ],
+    tags: ["Cotton", "T-shirts", "american apparel", "cutie"],
+    createdAt: "2026-08-02 21:58:23+00:00",
     etsyUrl: etsyUrls["cute-alan-greenspan-tee"],
     isPlaceholder: false,
   },
@@ -256,10 +1055,44 @@ export const products: Product[] = [
     printifyId: "6a6fbd7e5804b494730a652a",
     name: "Cute Oil Giant Tee",
     description: "",
-    priceCents: 2500,
+    priceCents: 2600,
     imageSrc: "/shirts/cute-oil-giant-tee-front.png",
     imageBackSrc: "/shirts/cute-oil-giant-tee-back.png",
     imageAlt: "Cute Oil Giant Tee mockup",
+    colors: [
+      {
+        name: "Cream",
+        frontSrc: "/shirts/cute-oil-giant-tee-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/cute-oil-giant-tee--black-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee--black-back.png"
+      },
+      {
+        name: "Celadon",
+        frontSrc: "/shirts/cute-oil-giant-tee--celadon-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee--celadon-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/cute-oil-giant-tee--pink-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee--pink-back.png"
+      },
+      {
+        name: "Powder Blue",
+        frontSrc: "/shirts/cute-oil-giant-tee--powder-blue-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee--powder-blue-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/cute-oil-giant-tee--white-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee--white-back.png"
+      }
+    ],
+    tags: ["Cotton", "T-shirts", "american apparel", "cutie"],
+    createdAt: "2026-08-02 21:58:22+00:00",
     etsyUrl: etsyUrls["cute-oil-giant-tee"],
     isPlaceholder: false,
   },
@@ -272,6 +1105,35 @@ export const products: Product[] = [
     imageSrc: "/shirts/hypno-crime-front.png",
     imageBackSrc: "/shirts/hypno-crime-back.png",
     imageAlt: "hypNO crime mockup",
+    colors: [
+      {
+        name: "Powder Blue",
+        frontSrc: "/shirts/hypno-crime-front.png",
+        backSrc: "/shirts/hypno-crime-back.png"
+      },
+      {
+        name: "Cardinal",
+        frontSrc: "/shirts/hypno-crime--cardinal-front.png",
+        backSrc: "/shirts/hypno-crime--cardinal-back.png"
+      },
+      {
+        name: "Celadon",
+        frontSrc: "/shirts/hypno-crime--celadon-front.png",
+        backSrc: "/shirts/hypno-crime--celadon-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/hypno-crime--pink-front.png",
+        backSrc: "/shirts/hypno-crime--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/hypno-crime--white-front.png",
+        backSrc: "/shirts/hypno-crime--white-back.png"
+      }
+    ],
+    tags: ["Cotton", "T-shirts", "american apparel"],
+    createdAt: "2026-08-02 21:58:21+00:00",
     etsyUrl: etsyUrls["hypno-crime"],
     isPlaceholder: false,
   },
@@ -284,6 +1146,45 @@ export const products: Product[] = [
     imageSrc: "/shirts/beautiful-wife-tee-front.png",
     imageBackSrc: "/shirts/beautiful-wife-tee-back.png",
     imageAlt: "Beautiful Wife Tee mockup",
+    colors: [
+      {
+        name: "Navy",
+        frontSrc: "/shirts/beautiful-wife-tee-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-back.png"
+      },
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/beautiful-wife-tee--carolina-blue-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--carolina-blue-back.png"
+      },
+      {
+        name: "Charcoal",
+        frontSrc: "/shirts/beautiful-wife-tee--charcoal-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--charcoal-back.png"
+      },
+      {
+        name: "Cream",
+        frontSrc: "/shirts/beautiful-wife-tee--cream-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--cream-back.png"
+      },
+      {
+        name: "Military Green",
+        frontSrc: "/shirts/beautiful-wife-tee--military-green-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--military-green-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/beautiful-wife-tee--pink-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/beautiful-wife-tee--white-front.png",
+        backSrc: "/shirts/beautiful-wife-tee--white-back.png"
+      }
+    ],
+    tags: ["Cotton", "T-shirts", "american apparel"],
+    createdAt: "2026-08-02 21:58:21+00:00",
     etsyUrl: etsyUrls["beautiful-wife-tee"],
     isPlaceholder: false,
   },
@@ -292,10 +1193,19 @@ export const products: Product[] = [
     printifyId: "6a6fbd67f0064b30000c4830",
     name: "Food Spilling Shirt",
     description: "",
-    priceCents: 3500,
+    priceCents: 4000,
     imageSrc: "/shirts/food-spilling-shirt-front.png",
     imageBackSrc: "/shirts/food-spilling-shirt-back.png",
     imageAlt: "Food Spilling Shirt mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/food-spilling-shirt-front.png",
+        backSrc: "/shirts/food-spilling-shirt-back.png"
+      }
+    ],
+    tags: ["Cotton", "T-shirts", "american apparel", "functional"],
+    createdAt: "2026-08-02 21:57:59+00:00",
     etsyUrl: etsyUrls["food-spilling-shirt"],
     isPlaceholder: false,
   }

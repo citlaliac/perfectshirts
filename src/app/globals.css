@@ -220,7 +220,8 @@ a:focus-visible {
 }
 
 .welcome-box h2,
-#shirts-heading {
+#shirts-heading,
+.catalog-heading {
   margin-top: 0;
   color: #4a5a90;
 }
@@ -234,10 +235,94 @@ a:focus-visible {
   margin-top: 0;
 }
 
-.shirt-list {
+/* Heading + tiny sort/tag controls on one row */
+.catalog-toolbar {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin: 0 0 4px;
+}
+
+.catalog-heading {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 12px;
+  margin: 0;
+  align-items: center;
+}
+
+/* Compact text-style triggers — look tiny until you open the native menu */
+.catalog-control {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.catalog-control-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #777;
+}
+
+.catalog-select {
+  min-height: 0;
+  max-width: 9.5rem;
+  margin: 0;
+  padding: 0 14px 0 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: linear-gradient(45deg, transparent 50%, #666 50%),
+    linear-gradient(135deg, #666 50%, transparent 50%);
+  background-position:
+    calc(100% - 8px) 55%,
+    calc(100% - 3px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.catalog-select:hover,
+.catalog-select:focus-visible {
+  color: #000;
+  outline: none;
+  text-decoration: underline;
+}
+
+.catalog-count,
+.catalog-empty {
+  margin: 0 0 10px;
+  font-size: 0.7rem;
+  color: #777;
+  text-align: right;
+}
+
+.shirt-list {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+  /* Stretch so every card in a row matches height */
+  align-items: stretch;
 }
 
 .shirt-box,
@@ -247,10 +332,152 @@ a:focus-visible {
   padding: 12px;
 }
 
+/* Uniform listing cards: same outer box + same photo stage */
+.shirt-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+
+/* Detail page: larger stage for swiping colors + front/back */
+.shirt-detail .shirt-name {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.detail-gallery {
+  margin: 0 0 14px;
+}
+
+.detail-gallery-stage {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 1000 / 1100;
+  margin: 0 auto 10px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  touch-action: pan-y;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.1) 35%,
+      rgba(0, 0, 0, 0.03) 55%,
+      transparent 72%
+    ),
+    #ffffff;
+}
+
+.detail-gallery-image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.detail-gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 2px outset #c0c0c0;
+  background: rgba(255, 247, 168, 0.92);
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.detail-gallery-prev {
+  left: 6px;
+}
+
+.detail-gallery-next {
+  right: 6px;
+}
+
+.detail-gallery-caption {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.detail-gallery-count {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.detail-gallery-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.detail-gallery-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.detail-gallery-dot.is-active {
+  background: #9b7bb8;
+}
+
+.detail-gallery-sides,
+.detail-color-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.detail-side-btn,
+.detail-color-chip {
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 2px outset #c0c0c0;
+  background: #fff7a8;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.detail-side-btn.is-active,
+.detail-color-chip.is-active {
+  background: #d3ece9;
+  border-style: inset;
+}
+
+.detail-side-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .shirt-name {
   margin: 0 0 8px;
-  font-size: 1.45rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
   color: #9b7bb8;
+}
+
+/* Listing only: fixed 2-line title slot keeps every card the same height */
+.shirt-box .shirt-name {
+  min-height: calc(1.25em * 2);
+  max-height: calc(1.25em * 2);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .shirt-name a {
@@ -275,7 +502,8 @@ a:focus-visible {
 
 .shirt-photo-link {
   display: block;
-  width: min(100%, 320px);
+  /* Full card width so every listing photo stage matches */
+  width: 100%;
   aspect-ratio: 1000 / 1100;
   position: relative;
   margin: 0 0 10px;
@@ -283,6 +511,7 @@ a:focus-visible {
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  flex-shrink: 0;
   /* Soft radial shadow over a white tee backdrop */
   background:
     radial-gradient(
@@ -293,6 +522,13 @@ a:focus-visible {
       transparent 72%
     ),
     #ffffff;
+}
+
+.shirt-box-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .shirt-photo {
@@ -315,8 +551,12 @@ a:focus-visible {
 }
 
 .shirt-price {
-  font-size: 1.25rem;
-  margin: 0 0 8px;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.shirt-box-footer .buy-link {
+  align-self: flex-start;
 }
 
 .shirt-meta,
@@ -360,9 +600,7 @@ a:focus-visible {
 
 @media (min-width: 700px) {
   .shirt-list {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    align-items: start;
   }
 }

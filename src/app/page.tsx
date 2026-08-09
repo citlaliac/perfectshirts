@@ -1,26 +1,22 @@
-import { ShirtListing } from "@/components/ShirtListing";
-import { getAllProducts } from "@/lib/products";
+import { ShirtCatalog } from "@/components/ShirtCatalog";
+import { getAllProducts, getTagOptions } from "@/lib/products";
 
-/** Legal-pad home: welcome blurb + shirt grid. */
+/** Legal-pad home: welcome blurb + sortable / filterable shirt grid. */
 export default function HomePage() {
   const shirts = getAllProducts();
+  const tagOptions = getTagOptions(shirts);
 
   return (
     <main>
       <section className="welcome-box" aria-labelledby="welcome-heading">
         <p id="welcome-heading">
-          peruse here, then click &apos;buy on etsy&apos; to buy it through my
-          etsy.
+          click a shirt for a bigger look (swipe colors and front/back), then
+          buy on etsy.
         </p>
       </section>
 
       <section id="shirts" aria-labelledby="shirts-heading">
-        <h2 id="shirts-heading">the shirts</h2>
-        <div className="shirt-list">
-          {shirts.map((product) => (
-            <ShirtListing key={product.slug} product={product} />
-          ))}
-        </div>
+        <ShirtCatalog products={shirts} tagOptions={tagOptions} />
       </section>
     </main>
   );

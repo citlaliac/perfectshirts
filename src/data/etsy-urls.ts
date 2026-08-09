@@ -1,38 +1,76 @@
 /**
  * Per-shirt Etsy listing URLs (clean — no tracking query params).
  *
- * Edit this file when listings change. Sync + the storefront both read it.
+ * Sourced from Printify `external.handle` when published to Etsy.
+ * Re-run: npx tsx scripts/tmp-find-etsy.ts  (or future sync:etsy step)
  * Fallback for missing slugs is the shop URL in product-types.ts.
  */
 export const etsyUrls: Record<string, string> = {
-  "food-spilling-shirt":
-    "https://www.etsy.com/listing/4548748031/food-spilling-shirt",
-  "cute-oil-giant-tee":
-    "https://www.etsy.com/listing/4548747713/cute-oil-giant-tee",
-  "cute-alan-greenspan-tee":
-    "https://www.etsy.com/listing/4548747629/cute-alan-greenspan-tee",
+  "16th-century-sun-tee":
+    "https://www.etsy.com/listing/4552500486/16th-century-sun-tee",
+  "all-i-got-was-this-perfect-shirt":
+    "https://www.etsy.com/listing/4550090665/all-i-got-was-this-perfect-shirt",
+  "amazing-melons":
+    "https://www.etsy.com/listing/4550047495/amazing-melons",
+  "artistic-meat-for-the-capitalist-machine":
+    "https://www.etsy.com/listing/4550094745/artistic-meat-for-the-capitalist-machine",
+  "beach-day-tee":
+    "https://www.etsy.com/listing/4550078440/beach-day",
+  "beautiful-wife-tee":
+    "https://www.etsy.com/listing/4548759886/beautiful-wife-tee",
+  "british-creed":
+    "https://www.etsy.com/listing/4552490959/british-creed",
   "business-casual-tee":
     "https://www.etsy.com/listing/4548749752/business-casual-tee",
   "business-casualty":
     "https://www.etsy.com/listing/4548735873/business-casualty-tee",
-  "beautiful-wife-tee":
-    "https://www.etsy.com/listing/4548759886/beautiful-wife-tee",
-  "premium-catholic-ecloud-lamb-worshiper":
-    "https://www.etsy.com/listing/4548842568/premium-catholic-ecloud-lamb-worshiper",
-  // Listing id from your link (Etsy path slug incorrectly said lamb)
-  "premium-catholic-ecloud-frog-worshiper":
-    "https://www.etsy.com/listing/4548841384/premium-catholic-ecloud-frog-worshiper",
-  "premium-catholic-ecloud-fairyworhsiper":
-    "https://www.etsy.com/listing/4548835688/premium-catholic-ecloud-fairyworhsiper",
-  "pope-of-the-catholic-ecloud":
-    "https://www.etsy.com/listing/4548845478/pope-of-the-catholic-ecloud",
+  "catholic-ecloud-chest-logo-frog":
+    "https://www.etsy.com/listing/4550034084/catholic-ecloud-chest-logo-frog",
+  "catholic-ecloud-fairy-worshiper-simple":
+    "https://www.etsy.com/listing/4548839057/catholic-ecloud-fairy-worshiper-simple",
   "catholic-ecloud-frog-worshiper-simple":
     "https://www.etsy.com/listing/4548826131/catholic-ecloud-frog-worshiper-simple",
   "catholic-ecloud-lamb-worshiper-simple":
     "https://www.etsy.com/listing/4548839363/catholic-ecloud-lamb-worshiper-simple",
-  "catholic-ecloud-fairy-worshiper-simple":
-    "https://www.etsy.com/listing/4548839057/catholic-ecloud-fairy-worshiper-simple",
-  "hypno-crime": "https://www.etsy.com/listing/4548746985/hypno-crime",
+  "cute-alan-greenspan-tee":
+    "https://www.etsy.com/listing/4548747629/cute-alan-greenspan-tee",
+  "cute-oil-giant-tee":
+    "https://www.etsy.com/listing/4548747713/cute-oil-giant-tee",
+  "food-spilling-shirt":
+    "https://www.etsy.com/listing/4548748031/food-spilling-shirt",
+  "girl-meat-for-the-capitalist-machine":
+    "https://www.etsy.com/listing/4552501970/girl-meat-for-the-capitalist-machine",
+  "hypno-crime":
+    "https://www.etsy.com/listing/4548746985/hypno-crime",
   "i-am-not-irish-do-not-touch-me":
     "https://www.etsy.com/listing/4548849620/i-am-not-irish-do-not-touch-me",
+  "pink-flowers-shirt":
+    "https://www.etsy.com/listing/4550059095/pink-flowers-shirt",
+  "pope-cec-shirt-smaller-logo":
+    "https://www.etsy.com/listing/4552492907/pope-cec-shirt-smaller-logo",
+  "pope-of-the-catholic-ecloud":
+    "https://www.etsy.com/listing/4548845478/pope-of-the-catholic-ecloud",
+  "premium-catholic-ecloud-fairyworhsiper":
+    "https://www.etsy.com/listing/4548835688/premium-catholic-ecloud-fairy-worshiper",
+  // Printify/Etsy path slug incorrectly said "lamb"; listing id is the frog tee.
+  "premium-catholic-ecloud-frog-worshiper":
+    "https://www.etsy.com/listing/4548841384/premium-catholic-ecloud-frog-worshiper",
+  "premium-catholic-ecloud-lamb-worshiper":
+    "https://www.etsy.com/listing/4548842568/premium-catholic-ecloud-lamb-worshiper",
+  "pumpkin-balloon-halloween-large-design":
+    "https://www.etsy.com/listing/4552503286/pumpkin-balloon-halloween-large-design",
+  "pumpkin-balloon-halloween-shirt-small-logo":
+    "https://www.etsy.com/listing/4552502736/pumpkin-balloon-halloween-shirt-small",
+  "pumpkin-peeps":
+    "https://www.etsy.com/listing/4552500189/pumpkin-peeps",
+  "purrrfect-shirts":
+    "https://www.etsy.com/listing/4550102576/purrrfect-shirts",
+  "sun-moon-city":
+    "https://www.etsy.com/listing/4552488367/sun-moon-city",
+  "sun-moon-on-horseback":
+    "https://www.etsy.com/listing/4552488805/sun-moon-on-horseback",
+  "tepeyollotl-tee":
+    "https://www.etsy.com/listing/4552488713/tepeyollotl-tee",
+  "the-candy-man-must":
+    "https://www.etsy.com/listing/4550043370/the-candy-man-must",
 };
