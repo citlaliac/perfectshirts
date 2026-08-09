@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Product } from "@/data/product-types";
 import { formatPrice } from "@/lib/products";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
@@ -11,6 +10,9 @@ type ShirtListingProps = {
 /**
  * Legal-pad shirt block: name + photo open the detail page; Etsy stays a buy CTA.
  * Layout is sized so every card in the grid matches height.
+ *
+ * Detail links use a plain <a> (full page load) so LiteSpeed static hosting
+ * cannot break Next soft-nav / RSC fetches on shirt pages.
  */
 export function ShirtListing({ product }: ShirtListingProps) {
   const detailHref = `/shirts/${product.slug}/`;
@@ -18,7 +20,7 @@ export function ShirtListing({ product }: ShirtListingProps) {
   return (
     <article className="shirt-box" id={product.slug}>
       <h2 className="shirt-name">
-        <Link href={detailHref}>{product.name}</Link>
+        <a href={detailHref}>{product.name}</a>
       </h2>
       {product.isPlaceholder ? (
         <p className="placeholder-badge">PLACEHOLDER PRODUCT</p>

@@ -1,0 +1,20 @@
+# Perfect Shirts — static Next.js export on LiteSpeed / Apache (PlanetHoster).
+#
+# Soft client navigations send an RSC header and expect the flight payload
+# (index.txt). Without this, the host returns index.html and the app router
+# can throw "Application error: a client-side exception…".
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Directory URL → index.txt when the Next router asks for RSC
+  RewriteCond %{HTTP:RSC} =1
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.txt -f
+  RewriteRule ^(.*)$ $1/index.txt [L]
+
+  # File-like URL → sibling .txt flight file
+  RewriteCond %{HTTP:RSC} =1
+  RewriteCond %{REQUEST_FILENAME}.txt -f
+  RewriteRule ^(.*)$ $1.txt [L]
+</IfModule>

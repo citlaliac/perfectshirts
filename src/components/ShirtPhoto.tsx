@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type ShirtPhotoProps = {
@@ -9,7 +8,7 @@ type ShirtPhotoProps = {
   frontSrc: string;
   backSrc?: string;
   alt: string;
-  /** Opens the shirt detail page (bigger gallery). */
+  /** Opens the shirt detail page (bigger gallery) via full page load. */
   detailHref: string;
 };
 
@@ -79,7 +78,8 @@ export function ShirtPhoto({
   }, [hasBack, autoFlip]);
 
   return (
-    <Link
+    // Plain anchor: full document navigation (reliable on static FTP hosts).
+    <a
       className={`shirt-photo-link${showBack && hasBack ? " is-showing-back" : ""}`}
       href={detailHref}
       aria-label={`View ${name} details`}
@@ -109,6 +109,6 @@ export function ShirtPhoto({
           aria-hidden={!showBack}
         />
       ) : null}
-    </Link>
+    </a>
   );
 }
