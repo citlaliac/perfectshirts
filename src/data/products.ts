@@ -12,6 +12,357 @@ export { ETSY_SHOP_URL } from "./product-types";
 
 export const products: Product[] = [
   {
+    slug: "cute-alan-greenspan-tee-womens",
+    printifyId: "6a7fd52d04ca29e0460d6778",
+    name: "Cute Alan Greenspan Tee - womens",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
+    imageBackSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png",
+    imageAlt: "Cute Alan Greenspan Tee - womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png"
+      },
+      {
+        name: "Dark Lavender",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens--dark-lavender-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens--dark-lavender-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens--pink-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens--pink-back.png"
+      },
+      {
+        name: "Sage",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens--sage-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens--sage-back.png"
+      },
+      {
+        name: "Teal",
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens--teal-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens--teal-back.png"
+      }
+    ],
+    tags: ["cotton", "t-shirt", "womens"],
+    createdAt: "2026-08-15 02:55:41+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "cute-oil-giant-tee-womens",
+    printifyId: "6a7fd3774f40ed8f8107d2d4",
+    name: "Cute Oil Giant Tee - womens",
+    description: "",
+    priceCents: 3500,
+    imageSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
+    imageBackSrc: "/shirts/cute-oil-giant-tee-womens-back.png",
+    imageAlt: "Cute Oil Giant Tee - womens mockup",
+    colors: [
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens-back.png"
+      },
+      {
+        name: "Dark Lavender",
+        frontSrc: "/shirts/cute-oil-giant-tee-womens--dark-lavender-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens--dark-lavender-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/cute-oil-giant-tee-womens--pink-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens--pink-back.png"
+      },
+      {
+        name: "Sage",
+        frontSrc: "/shirts/cute-oil-giant-tee-womens--sage-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens--sage-back.png"
+      },
+      {
+        name: "Teal",
+        frontSrc: "/shirts/cute-oil-giant-tee-womens--teal-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens--teal-back.png"
+      }
+    ],
+    tags: ["cotton", "womens", "long", "t-shirt"],
+    createdAt: "2026-08-15 02:48:23+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "hypno-crime-womens",
+    printifyId: "6a7fd2d891b63b6be306f856",
+    name: "hypNO crime - womens",
+    description: "",
+    priceCents: 3500,
+    imageSrc: "/shirts/hypno-crime-womens-front.png",
+    imageBackSrc: "/shirts/hypno-crime-womens-back.png",
+    imageAlt: "hypNO crime - womens mockup",
+    colors: [
+      {
+        name: "Dark Lavender",
+        frontSrc: "/shirts/hypno-crime-womens-front.png",
+        backSrc: "/shirts/hypno-crime-womens-back.png"
+      },
+      {
+        name: "Team Purple",
+        frontSrc: "/shirts/hypno-crime-womens--team-purple-front.png",
+        backSrc: "/shirts/hypno-crime-womens--team-purple-back.png"
+      }
+    ],
+    tags: ["womens", "cotton", "t-shirt"],
+    createdAt: "2026-08-15 02:45:44+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "all-i-got-was-this-perfect-shirt-boxy-tee",
+    printifyId: "6a7fd24d3ecee8dfea066479",
+    name: "All I got was this perfect shirt - boxy tee",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-front.png",
+    imageBackSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-back.png",
+    imageAlt: "All I got was this perfect shirt - boxy tee mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-back.png"
+      },
+      {
+        name: "Ivory",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee--ivory-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee--ivory-back.png"
+      }
+    ],
+    tags: ["boxy", "cotton", "womens", "t-shirt"],
+    createdAt: "2026-08-15 02:43:25+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "british-creed-women",
+    printifyId: "6a7fd181d171f252ad0c0cc9",
+    name: "British Creed - women",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/british-creed-women-front.png",
+    imageBackSrc: "/shirts/british-creed-women-back.png",
+    imageAlt: "British Creed - women mockup",
+    colors: [
+      {
+        name: "Asphalt",
+        frontSrc: "/shirts/british-creed-women-front.png",
+        backSrc: "/shirts/british-creed-women-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/british-creed-women--black-front.png",
+        backSrc: "/shirts/british-creed-women--black-back.png"
+      },
+      {
+        name: "Dark Lavender",
+        frontSrc: "/shirts/british-creed-women--dark-lavender-front.png",
+        backSrc: "/shirts/british-creed-women--dark-lavender-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/british-creed-women--natural-front.png",
+        backSrc: "/shirts/british-creed-women--natural-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/british-creed-women--navy-front.png",
+        backSrc: "/shirts/british-creed-women--navy-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/british-creed-women--white-front.png",
+        backSrc: "/shirts/british-creed-women--white-back.png"
+      }
+    ],
+    tags: ["womens", "cotton", "t-shirt", "artistic"],
+    createdAt: "2026-08-15 02:40:01+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "small-logo-pumpkin-balloon-halloween-shirt-womens",
+    printifyId: "6a7fd0603ecee8dfea0662b5",
+    name: "Small logo Pumpkin Balloon Halloween Shirt - Womens",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-front.png",
+    imageBackSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-back.png",
+    imageAlt: "Small logo Pumpkin Balloon Halloween Shirt - Womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-front.png",
+        backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--white-front.png",
+        backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--white-back.png"
+      }
+    ],
+    tags: ["t-shirt", "cotton", "womens", "seasonal"],
+    createdAt: "2026-08-15 02:35:12+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "meat-for-the-capitalist-machine-womens",
+    printifyId: "6a7fcf819b54c111e5072098",
+    name: "Meat for the Capitalist Machine - Womens",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/meat-for-the-capitalist-machine-womens-front.png",
+    imageBackSrc: "/shirts/meat-for-the-capitalist-machine-womens-back.png",
+    imageAlt: "Meat for the Capitalist Machine - Womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/meat-for-the-capitalist-machine-womens-front.png",
+        backSrc: "/shirts/meat-for-the-capitalist-machine-womens-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/meat-for-the-capitalist-machine-womens--pink-front.png",
+        backSrc: "/shirts/meat-for-the-capitalist-machine-womens--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/meat-for-the-capitalist-machine-womens--white-front.png",
+        backSrc: "/shirts/meat-for-the-capitalist-machine-womens--white-back.png"
+      }
+    ],
+    tags: ["cotton", "womens", "t-shirt", "artistic"],
+    createdAt: "2026-08-15 02:31:29+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "sun-moon-on-horseback-womens",
+    printifyId: "6a7fcea69b54c111e5071f79",
+    name: "Sun Moon on Horseback - Womens",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/sun-moon-on-horseback-womens-front.png",
+    imageBackSrc: "/shirts/sun-moon-on-horseback-womens-back.png",
+    imageAlt: "Sun Moon on Horseback - Womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/sun-moon-on-horseback-womens-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback-womens-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/sun-moon-on-horseback-womens--navy-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback-womens--navy-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/sun-moon-on-horseback-womens--pink-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback-womens--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/sun-moon-on-horseback-womens--white-front.png",
+        backSrc: "/shirts/sun-moon-on-horseback-womens--white-back.png"
+      }
+    ],
+    tags: ["womens", "cotton", "t-shirt", "artistic"],
+    createdAt: "2026-08-15 02:27:50+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "sun-moon-city-boxy-tee",
+    printifyId: "6a7fcb678d0285ad0601c36f",
+    name: "Sun Moon City - Boxy Tee",
+    description: "",
+    priceCents: 3800,
+    imageSrc: "/shirts/sun-moon-city-boxy-tee-front.png",
+    imageBackSrc: "/shirts/sun-moon-city-boxy-tee-back.png",
+    imageAlt: "Sun Moon City - Boxy Tee mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/sun-moon-city-boxy-tee-front.png",
+        backSrc: "/shirts/sun-moon-city-boxy-tee-back.png"
+      },
+      {
+        name: "Ivory",
+        frontSrc: "/shirts/sun-moon-city-boxy-tee--ivory-front.png",
+        backSrc: "/shirts/sun-moon-city-boxy-tee--ivory-back.png"
+      },
+      {
+        name: "Peachy",
+        frontSrc: "/shirts/sun-moon-city-boxy-tee--peachy-front.png",
+        backSrc: "/shirts/sun-moon-city-boxy-tee--peachy-back.png"
+      }
+    ],
+    tags: ["cotton", "womens", "boxy", "t-shirt", "artistic"],
+    createdAt: "2026-08-15 02:13:59+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "i-am-not-irish-do-not-touch-me-boxy-tee",
+    printifyId: "6a7fca9091b63b6be306f031",
+    name: "i am not irish do not touch me - boxy tee",
+    description: "",
+    priceCents: 2500,
+    imageSrc: "/shirts/i-am-not-irish-do-not-touch-me-boxy-tee-front.png",
+    imageBackSrc: "/shirts/i-am-not-irish-do-not-touch-me-boxy-tee-back.png",
+    imageAlt: "i am not irish do not touch me - boxy tee mockup",
+    colors: [
+      {
+        name: "Irish Green",
+        frontSrc: "/shirts/i-am-not-irish-do-not-touch-me-boxy-tee-front.png",
+        backSrc: "/shirts/i-am-not-irish-do-not-touch-me-boxy-tee-back.png"
+      }
+    ],
+    tags: ["seasonal", "cotton", "t-shirt", "womens", "bosy"],
+    createdAt: "2026-08-15 02:10:24+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "catholic-e-cloud-boxy-tee",
+    printifyId: "6a7fc988a304b1ef4e02ca4b",
+    name: "catholic e cloud - boxy tee",
+    description: "",
+    priceCents: 3600,
+    imageSrc: "/shirts/catholic-e-cloud-boxy-tee-front.png",
+    imageBackSrc: "/shirts/catholic-e-cloud-boxy-tee-back.png",
+    imageAlt: "catholic e cloud - boxy tee mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/catholic-e-cloud-boxy-tee-front.png",
+        backSrc: "/shirts/catholic-e-cloud-boxy-tee-back.png"
+      },
+      {
+        name: "Ivory",
+        frontSrc: "/shirts/catholic-e-cloud-boxy-tee--ivory-front.png",
+        backSrc: "/shirts/catholic-e-cloud-boxy-tee--ivory-back.png"
+      }
+    ],
+    tags: ["cotton", "t-shirt", "womens", "boxy", "catholic"],
+    createdAt: "2026-08-15 02:06:00+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
     slug: "british-creed",
     printifyId: "6a77ce087b7da036a200c7f5",
     name: "British Creed",
@@ -22,14 +373,9 @@ export const products: Product[] = [
     imageAlt: "British Creed mockup",
     colors: [
       {
-        name: "Blonde",
+        name: "Dark Grey",
         frontSrc: "/shirts/british-creed-front.png",
         backSrc: "/shirts/british-creed-back.png"
-      },
-      {
-        name: "Dark Grey",
-        frontSrc: "/shirts/british-creed--dark-grey-front.png",
-        backSrc: "/shirts/british-creed--dark-grey-back.png"
       },
       {
         name: "Khaki",
@@ -206,13 +552,13 @@ export const products: Product[] = [
     printifyId: "6a77a684aa493c8986097db7",
     name: "Tepeyollotl Tee",
     description: "",
-    priceCents: 3048,
+    priceCents: 2731,
     imageSrc: "/shirts/tepeyollotl-tee-front.png",
     imageBackSrc: "/shirts/tepeyollotl-tee-back.png",
     imageAlt: "Tepeyollotl Tee mockup",
     colors: [
       {
-        name: "Blonde",
+        name: "Khaki",
         frontSrc: "/shirts/tepeyollotl-tee-front.png",
         backSrc: "/shirts/tepeyollotl-tee-back.png"
       },
@@ -293,7 +639,7 @@ export const products: Product[] = [
     printifyId: "6a72a03bceeb733b6b0d37e1",
     name: "Artistic Meat for the Capitalist Machine",
     description: "",
-    priceCents: 3300,
+    priceCents: 2731,
     imageSrc: "/shirts/artistic-meat-for-the-capitalist-machine-front.png",
     imageBackSrc: "/shirts/artistic-meat-for-the-capitalist-machine-back.png",
     imageAlt: "Artistic Meat for the Capitalist Machine mockup",
@@ -304,9 +650,9 @@ export const products: Product[] = [
         backSrc: "/shirts/artistic-meat-for-the-capitalist-machine-back.png"
       },
       {
-        name: "Blonde",
-        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--blonde-front.png",
-        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--blonde-back.png"
+        name: "Khaki",
+        frontSrc: "/shirts/artistic-meat-for-the-capitalist-machine--khaki-front.png",
+        backSrc: "/shirts/artistic-meat-for-the-capitalist-machine--khaki-back.png"
       },
       {
         name: "Pink",
@@ -495,11 +841,6 @@ export const products: Product[] = [
         backSrc: "/shirts/catholic-ecloud-chest-logo-frog--black-back.png"
       },
       {
-        name: "Blonde",
-        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--blonde-front.png",
-        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--blonde-back.png"
-      },
-      {
         name: "Burgundy",
         frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--burgundy-front.png",
         backSrc: "/shirts/catholic-ecloud-chest-logo-frog--burgundy-back.png"
@@ -508,6 +849,11 @@ export const products: Product[] = [
         name: "Dark Grey",
         frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--dark-grey-front.png",
         backSrc: "/shirts/catholic-ecloud-chest-logo-frog--dark-grey-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/catholic-ecloud-chest-logo-frog--khaki-front.png",
+        backSrc: "/shirts/catholic-ecloud-chest-logo-frog--khaki-back.png"
       },
       {
         name: "Navy",
@@ -543,11 +889,6 @@ export const products: Product[] = [
         name: "Black",
         frontSrc: "/shirts/pope-cec-shirt-smaller-logo--black-front.png",
         backSrc: "/shirts/pope-cec-shirt-smaller-logo--black-back.png"
-      },
-      {
-        name: "Blonde",
-        frontSrc: "/shirts/pope-cec-shirt-smaller-logo--blonde-front.png",
-        backSrc: "/shirts/pope-cec-shirt-smaller-logo--blonde-back.png"
       },
       {
         name: "Dark Grey",
@@ -794,14 +1135,14 @@ export const products: Product[] = [
         backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper-back.png"
       },
       {
-        name: "Blonde",
-        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--blonde-front.png",
-        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--blonde-back.png"
-      },
-      {
         name: "Dark Grey",
         frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--dark-grey-front.png",
         backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--dark-grey-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--khaki-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-lamb-worshiper--khaki-back.png"
       },
       {
         name: "Navy",
@@ -870,7 +1211,7 @@ export const products: Product[] = [
     printifyId: "6a70002445ec6e34120df2ce",
     name: "Premium Catholic eCloud - Frog Worshiper",
     description: "",
-    priceCents: 5500,
+    priceCents: 5464,
     imageSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-front.png",
     imageBackSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-back.png",
     imageAlt: "Premium Catholic eCloud - Frog Worshiper mockup",
@@ -881,14 +1222,14 @@ export const products: Product[] = [
         backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper-back.png"
       },
       {
-        name: "Blonde",
-        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--blonde-front.png",
-        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--blonde-back.png"
-      },
-      {
         name: "Dark Grey",
         frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--dark-grey-front.png",
         backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--dark-grey-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--khaki-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-frog-worshiper--khaki-back.png"
       },
       {
         name: "Navy",
@@ -932,14 +1273,14 @@ export const products: Product[] = [
         backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper-back.png"
       },
       {
-        name: "Blonde",
-        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--blonde-front.png",
-        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--blonde-back.png"
-      },
-      {
         name: "Dark Grey",
         frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--dark-grey-front.png",
         backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--dark-grey-back.png"
+      },
+      {
+        name: "Khaki",
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-back.png"
       },
       {
         name: "Navy",
@@ -1138,54 +1479,54 @@ export const products: Product[] = [
     isPlaceholder: false,
   },
   {
-    slug: "beautiful-wife-tee",
+    slug: "beautiful-wife-tee-womens",
     printifyId: "6a6fbd7d220a3d9838021cc5",
-    name: "Beautiful Wife Tee",
+    name: "Beautiful Wife Tee - womens",
     description: "",
     priceCents: 2600,
-    imageSrc: "/shirts/beautiful-wife-tee-front.png",
-    imageBackSrc: "/shirts/beautiful-wife-tee-back.png",
-    imageAlt: "Beautiful Wife Tee mockup",
+    imageSrc: "/shirts/beautiful-wife-tee-womens-front.png",
+    imageBackSrc: "/shirts/beautiful-wife-tee-womens-back.png",
+    imageAlt: "Beautiful Wife Tee - womens mockup",
     colors: [
       {
-        name: "Navy",
-        frontSrc: "/shirts/beautiful-wife-tee-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-back.png"
-      },
-      {
         name: "Carolina Blue",
-        frontSrc: "/shirts/beautiful-wife-tee--carolina-blue-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--carolina-blue-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens-back.png"
       },
       {
         name: "Charcoal",
-        frontSrc: "/shirts/beautiful-wife-tee--charcoal-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--charcoal-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens--charcoal-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--charcoal-back.png"
       },
       {
         name: "Cream",
-        frontSrc: "/shirts/beautiful-wife-tee--cream-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--cream-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens--cream-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--cream-back.png"
       },
       {
         name: "Military Green",
-        frontSrc: "/shirts/beautiful-wife-tee--military-green-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--military-green-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens--military-green-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--military-green-back.png"
+      },
+      {
+        name: "Navy",
+        frontSrc: "/shirts/beautiful-wife-tee-womens--navy-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--navy-back.png"
       },
       {
         name: "Pink",
-        frontSrc: "/shirts/beautiful-wife-tee--pink-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--pink-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens--pink-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--pink-back.png"
       },
       {
         name: "White",
-        frontSrc: "/shirts/beautiful-wife-tee--white-front.png",
-        backSrc: "/shirts/beautiful-wife-tee--white-back.png"
+        frontSrc: "/shirts/beautiful-wife-tee-womens--white-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--white-back.png"
       }
     ],
     tags: ["Cotton", "T-shirts", "american apparel"],
     createdAt: "2026-08-02 21:58:21+00:00",
-    etsyUrl: etsyUrls["beautiful-wife-tee"],
+    etsyUrl: ETSY_SHOP_URL,
     isPlaceholder: false,
   },
   {
