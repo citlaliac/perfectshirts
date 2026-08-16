@@ -10,8 +10,7 @@ export default function HomePage() {
     <main>
       <section className="welcome-box" aria-labelledby="welcome-heading">
         <p id="welcome-heading">
-          click a shirt for a bigger look (swipe colors and front/back), then
-          buy on etsy.
+          click a shirt for a bigger look, then buy on etsy.
         </p>
       </section>
 
