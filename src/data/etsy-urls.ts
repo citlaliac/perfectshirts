@@ -2,7 +2,6 @@
  * Per-shirt Etsy listing URLs (clean — no tracking query params).
  *
  * Sourced from Printify `external.handle` when published to Etsy.
- * Re-run: npx tsx scripts/tmp-find-etsy.ts  (or future sync:etsy step)
  * Fallback for missing slugs is the shop URL in product-types.ts.
  */
 export const etsyUrls: Record<string, string> = {
@@ -10,16 +9,21 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4552500486/16th-century-sun-tee",
   "all-i-got-was-this-perfect-shirt":
     "https://www.etsy.com/listing/4550090665/all-i-got-was-this-perfect-shirt",
+  "all-i-got-was-this-perfect-shirt-boxy-tee":
+    "https://www.etsy.com/listing/4556105657/all-i-got-was-this-perfect-shirt-boxy",
   "amazing-melons":
     "https://www.etsy.com/listing/4550047495/amazing-melons",
   "artistic-meat-for-the-capitalist-machine":
     "https://www.etsy.com/listing/4550094745/artistic-meat-for-the-capitalist-machine",
   "beach-day-tee":
     "https://www.etsy.com/listing/4550078440/beach-day",
-  "beautiful-wife-tee":
+  // Same Printify/Etsy listing as the former "beautiful-wife-tee" slug.
+  "beautiful-wife-tee-womens":
     "https://www.etsy.com/listing/4548759886/beautiful-wife-tee",
   "british-creed":
     "https://www.etsy.com/listing/4552490959/british-creed",
+  "british-creed-women":
+    "https://www.etsy.com/listing/4556104555/british-creed-women",
   "business-casual-tee":
     "https://www.etsy.com/listing/4548749752/business-casual-tee",
   "business-casualty":
@@ -34,16 +38,26 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4548839363/catholic-ecloud-lamb-worshiper-simple",
   "cute-alan-greenspan-tee":
     "https://www.etsy.com/listing/4548747629/cute-alan-greenspan-tee",
+  "cute-alan-greenspan-tee-womens":
+    "https://www.etsy.com/listing/4556121094/cute-alan-greenspan-tee-womens",
   "cute-oil-giant-tee":
     "https://www.etsy.com/listing/4548747713/cute-oil-giant-tee",
+  "cute-oil-giant-tee-womens":
+    "https://www.etsy.com/listing/4556107585/cute-oil-giant-tee-womens",
   "food-spilling-shirt":
     "https://www.etsy.com/listing/4548748031/food-spilling-shirt",
   "girl-meat-for-the-capitalist-machine":
     "https://www.etsy.com/listing/4552501970/girl-meat-for-the-capitalist-machine",
   "hypno-crime":
     "https://www.etsy.com/listing/4548746985/hypno-crime",
+  "hypno-crime-womens":
+    "https://www.etsy.com/listing/4556106679/hypno-crime-womens",
   "i-am-not-irish-do-not-touch-me":
     "https://www.etsy.com/listing/4548849620/i-am-not-irish-do-not-touch-me",
+  "i-am-not-irish-do-not-touch-me-boxy-tee":
+    "https://www.etsy.com/listing/4556106434/i-am-not-irish-do-not-touch-me-boxy-tee",
+  "meat-for-the-capitalist-machine-womens":
+    "https://www.etsy.com/listing/4556101499/meat-for-the-capitalist-machine-womens",
   "pink-flowers-shirt":
     "https://www.etsy.com/listing/4550059095/pink-flowers-shirt",
   "pope-cec-shirt-smaller-logo":
@@ -65,10 +79,16 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4552500189/pumpkin-peeps",
   "purrrfect-shirts":
     "https://www.etsy.com/listing/4550102576/purrrfect-shirts",
+  "small-logo-pumpkin-balloon-halloween-shirt-womens":
+    "https://www.etsy.com/listing/4556102777/small-logo-pumpkin-balloon-halloween",
   "sun-moon-city":
     "https://www.etsy.com/listing/4552488367/sun-moon-city",
+  "sun-moon-city-boxy-tee":
+    "https://www.etsy.com/listing/4556107620/sun-moon-city-boxy-tee",
   "sun-moon-on-horseback":
     "https://www.etsy.com/listing/4552488805/sun-moon-on-horseback",
+  "sun-moon-on-horseback-womens":
+    "https://www.etsy.com/listing/4556111688/sun-moon-on-horseback-womens",
   "tepeyollotl-tee":
     "https://www.etsy.com/listing/4552488713/tepeyollotl-tee",
   "the-candy-man-must":

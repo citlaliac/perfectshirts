@@ -34,7 +34,6 @@ export const mockupColors: Record<string, string> = {
   "beach-day-tee": "white",
   "pink-flowers-shirt": "purple",
   "amazing-melons": "blonde",
-  // "catholic-ecloud-chest-logo-frog": pick one — Black, Blonde, Burgundy, Dark Grey, Navy, Pink, White
   "subtle-pope-cec-shirt": "navy",
   "the-candy-man-must": "blonde",
   "food-spilling-shirt": "black",
@@ -50,9 +49,24 @@ export const mockupColors: Record<string, string> = {
 
   "pumpkin-peeps": "black",
   "16th-century-sun-tee": "black",
-  "british-creed": "blonde",
+  // Blonde no longer on this Printify product — White is the clean listing stand-in.
+  "british-creed": "white",
   "girl-meat-for-the-capitalist-machine": "burgundy",
-  "tepeyollotl-tee": "blonde",
+  "tepeyollotl-tee": "khaki",
   "sun-moon-city": "sky blue",
   "catholic-ecloud-chest-logo-frog": "pink",
+
+  // 2026-08 women's / boxy intake (match unisex picks when the color exists)
+  "cute-alan-greenspan-tee-womens": "teal",
+  "cute-oil-giant-tee-womens": "pink",
+  "hypno-crime-womens": "dark lavender",
+  "all-i-got-was-this-perfect-shirt-boxy-tee": "ivory",
+  "british-creed-women": "natural",
+  "small-logo-pumpkin-balloon-halloween-shirt-womens": "white",
+  "meat-for-the-capitalist-machine-womens": "black",
+  "sun-moon-on-horseback-womens": "white",
+  "sun-moon-city-boxy-tee": "ivory",
+  "i-am-not-irish-do-not-touch-me-boxy-tee": "irish green",
+  "catholic-e-cloud-boxy-tee": "black",
+  "beautiful-wife-tee-womens": "navy",
 };
