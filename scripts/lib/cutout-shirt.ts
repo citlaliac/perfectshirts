@@ -53,10 +53,6 @@ function dist(a: Rgba, b: Rgba): number {
   return Math.sqrt(dr * dr + dg * dg + db * db);
 }
 
-function luminance(pixel: Rgba): number {
-  return (pixel.r + pixel.g + pixel.b) / 3;
-}
-
 function readPixel(data: Buffer, width: number, x: number, y: number): Rgba {
   const i = (y * width + x) * 4;
   return { r: data[i], g: data[i + 1], b: data[i + 2] };

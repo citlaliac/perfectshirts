@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BuyOnEtsyLink } from "@/components/BuyOnEtsyLink";
 import { ShirtDetailGallery } from "@/components/ShirtDetailGallery";
@@ -44,8 +45,7 @@ export default async function ShirtPage({ params }: ShirtPageProps) {
   return (
     <main>
       <p>
-        {/* Full page load — avoids soft-nav / RSC issues on static hosting. */}
-        <a href="/">← back to all shirts</a>
+        <Link href="/">← back to all shirts</Link>
       </p>
 
       <article className="shirt-detail">

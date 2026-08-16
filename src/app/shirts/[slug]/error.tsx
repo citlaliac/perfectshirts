@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 /**
  * Detail-page error UI — offers a hard reload when client routing fails
  * on the static host.
@@ -18,7 +20,7 @@ export default function ShirtDetailError({
         <button type="button" className="detail-side-btn" onClick={() => reset()}>
           try again
         </button>{" "}
-        <a href="/">← back to all shirts</a>
+        <Link href="/">← back to all shirts</Link>
       </p>
     </main>
   );
