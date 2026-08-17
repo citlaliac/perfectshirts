@@ -389,7 +389,8 @@ export const products: Product[] = [
       },
       {
         name: "Navy",
-        frontSrc: "/shirts/british-creed--navy-front.png"
+        frontSrc: "/shirts/british-creed--navy-front.png",
+        backSrc: "/shirts/british-creed--navy-back.png"
       },
       {
         name: "Pink",
@@ -1002,7 +1003,8 @@ export const products: Product[] = [
       },
       {
         name: "White",
-        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--white-front.png"
+        frontSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-lamb-worshiper-simple--white-back.png"
       }
     ],
     tags: ["catholic e cloud", "tshirt", "bella canvas", "lamb"],
@@ -1042,7 +1044,8 @@ export const products: Product[] = [
       },
       {
         name: "White",
-        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--white-front.png"
+        frontSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--white-front.png",
+        backSrc: "/shirts/catholic-ecloud-fairy-worshiper-simple--white-back.png"
       }
     ],
     createdAt: "2026-08-03 03:39:36+00:00",
@@ -1376,6 +1379,11 @@ export const products: Product[] = [
         name: "Pink",
         frontSrc: "/shirts/cute-alan-greenspan-tee--pink-front.png",
         backSrc: "/shirts/cute-alan-greenspan-tee--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/cute-alan-greenspan-tee--white-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee--white-back.png"
       }
     ],
     tags: ["Cotton", "T-shirts", "american apparel", "cutie"],
