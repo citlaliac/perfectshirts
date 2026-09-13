@@ -12,6 +12,340 @@ export { ETSY_SHOP_URL } from "./product-types";
 
 export const products: Product[] = [
   {
+    slug: "alan-greenspannerfly-tee",
+    printifyId: "6aa5aeaf5db3f4d3fe0ddf46",
+    name: "Alan Greenspannerfly Tee",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/alan-greenspannerfly-tee-front.png",
+    imageBackSrc: "/shirts/alan-greenspannerfly-tee-back.png",
+    imageAlt: "Alan Greenspannerfly Tee mockup",
+    colors: [
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/alan-greenspannerfly-tee-front.png",
+        backSrc: "/shirts/alan-greenspannerfly-tee-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/alan-greenspannerfly-tee--natural-front.png",
+        backSrc: "/shirts/alan-greenspannerfly-tee--natural-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/alan-greenspannerfly-tee--pink-front.png",
+        backSrc: "/shirts/alan-greenspannerfly-tee--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/alan-greenspannerfly-tee--white-front.png",
+        backSrc: "/shirts/alan-greenspannerfly-tee--white-back.png"
+      }
+    ],
+    tags: ["womens", "novelty"],
+    createdAt: "2026-09-12 19:57:35+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "copy-of-pink-flowers-shirt",
+    printifyId: "6aa5ade138eb2a21e90801d0",
+    name: "Copy of pink flowers shirt",
+    description: "",
+    priceCents: 3700,
+    imageSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
+    imageBackSrc: "/shirts/copy-of-pink-flowers-shirt-back.png",
+    imageAlt: "Copy of pink flowers shirt mockup",
+    colors: [
+      {
+        name: "Pink",
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
+        backSrc: "/shirts/copy-of-pink-flowers-shirt-back.png"
+      },
+      {
+        name: "Team Purple",
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt--team-purple-front.png",
+        backSrc: "/shirts/copy-of-pink-flowers-shirt--team-purple-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt--white-front.png",
+        backSrc: "/shirts/copy-of-pink-flowers-shirt--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 19:54:09+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "copy-of-business-casualty",
+    printifyId: "6aa5ad705bf87d84810ef743",
+    name: "Copy of Business Casualty",
+    description: "",
+    priceCents: 2500,
+    imageSrc: "/shirts/copy-of-business-casualty-front.png",
+    imageBackSrc: "/shirts/copy-of-business-casualty-back.png",
+    imageAlt: "Copy of Business Casualty mockup",
+    colors: [
+      {
+        name: "Jet Black",
+        frontSrc: "/shirts/copy-of-business-casualty-front.png",
+        backSrc: "/shirts/copy-of-business-casualty-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/copy-of-business-casualty--white-front.png",
+        backSrc: "/shirts/copy-of-business-casualty--white-back.png"
+      }
+    ],
+    tags: ["T-shirts", "Cotton", "business casualty"],
+    createdAt: "2026-09-12 19:52:16+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "purrrfect-shirts-womens",
+    printifyId: "6aa5ac5de0acdb9dfc0a27b7",
+    name: "Purrrfect Shirts - womens",
+    description: "",
+    priceCents: 2800,
+    imageSrc: "/shirts/purrrfect-shirts-womens-front.png",
+    imageBackSrc: "/shirts/purrrfect-shirts-womens-back.png",
+    imageAlt: "Purrrfect Shirts - womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/purrrfect-shirts-womens-front.png",
+        backSrc: "/shirts/purrrfect-shirts-womens-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/purrrfect-shirts-womens--pink-front.png",
+        backSrc: "/shirts/purrrfect-shirts-womens--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/purrrfect-shirts-womens--white-front.png",
+        backSrc: "/shirts/purrrfect-shirts-womens--white-back.png"
+      }
+    ],
+    tags: ["womens"],
+    createdAt: "2026-09-12 19:47:41+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "beach-day-womens",
+    printifyId: "6aa5ac2b95e95f327b0259e9",
+    name: "Beach day! - womens",
+    description: "",
+    priceCents: 2800,
+    imageSrc: "/shirts/beach-day-womens-front.png",
+    imageBackSrc: "/shirts/beach-day-womens-back.png",
+    imageAlt: "Beach day! - womens mockup",
+    colors: [
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/beach-day-womens-front.png",
+        backSrc: "/shirts/beach-day-womens-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/beach-day-womens--white-front.png",
+        backSrc: "/shirts/beach-day-womens--white-back.png"
+      }
+    ],
+    tags: ["womens", "artistic", "novelty"],
+    createdAt: "2026-09-12 19:46:51+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "the-candy-man-must-womens",
+    printifyId: "6aa5ac17a28b1fb44608315e",
+    name: "The Candy Man Must - womens",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/the-candy-man-must-womens-front.png",
+    imageBackSrc: "/shirts/the-candy-man-must-womens-back.png",
+    imageAlt: "The Candy Man Must - womens mockup",
+    colors: [
+      {
+        name: "Natural",
+        frontSrc: "/shirts/the-candy-man-must-womens-front.png",
+        backSrc: "/shirts/the-candy-man-must-womens-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/the-candy-man-must-womens--pink-front.png",
+        backSrc: "/shirts/the-candy-man-must-womens--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/the-candy-man-must-womens--white-front.png",
+        backSrc: "/shirts/the-candy-man-must-womens--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 19:46:31+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "amazing-melons-womens",
+    printifyId: "6aa5ab06f22eb8d7150e9b12",
+    name: "Amazing Melons - womens",
+    description: "",
+    priceCents: 2500,
+    imageSrc: "/shirts/amazing-melons-womens-front.png",
+    imageBackSrc: "/shirts/amazing-melons-womens-back.png",
+    imageAlt: "Amazing Melons - womens mockup",
+    colors: [
+      {
+        name: "Natural",
+        frontSrc: "/shirts/amazing-melons-womens-front.png",
+        backSrc: "/shirts/amazing-melons-womens-back.png"
+      },
+      {
+        name: "Pink",
+        frontSrc: "/shirts/amazing-melons-womens--pink-front.png",
+        backSrc: "/shirts/amazing-melons-womens--pink-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/amazing-melons-womens--white-front.png",
+        backSrc: "/shirts/amazing-melons-womens--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 19:41:58+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "sun-moon-city-womens",
+    printifyId: "6aa5a7913f48a0dc240e36b3",
+    name: "Sun Moon City - Womens",
+    description: "",
+    priceCents: 3500,
+    imageSrc: "/shirts/sun-moon-city-womens-front.png",
+    imageBackSrc: "/shirts/sun-moon-city-womens-back.png",
+    imageAlt: "Sun Moon City - Womens mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/sun-moon-city-womens-front.png",
+        backSrc: "/shirts/sun-moon-city-womens-back.png"
+      },
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/sun-moon-city-womens--carolina-blue-front.png",
+        backSrc: "/shirts/sun-moon-city-womens--carolina-blue-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/sun-moon-city-womens--natural-front.png",
+        backSrc: "/shirts/sun-moon-city-womens--natural-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/sun-moon-city-womens--white-front.png",
+        backSrc: "/shirts/sun-moon-city-womens--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 19:27:13+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "all-i-got-was-this-perfect-shirt-womens",
+    printifyId: "6aa5825e76eb18f54d090cec",
+    name: "All I got was this perfect shirt - womens",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-front.png",
+    imageBackSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-back.png",
+    imageAlt: "All I got was this perfect shirt - womens mockup",
+    colors: [
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--natural-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--natural-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--white-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 16:48:28+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
+    slug: "beautiful-wife-tee-womens",
+    printifyId: "6aa5806e6688aae7790acd70",
+    name: "Beautiful Wife Tee - womens",
+    description: "",
+    priceCents: 2600,
+    imageSrc: "/shirts/beautiful-wife-tee-womens-front.png",
+    imageBackSrc: "/shirts/beautiful-wife-tee-womens-back.png",
+    imageAlt: "Beautiful Wife Tee - womens mockup",
+    colors: [
+      {
+        name: "Navy",
+        frontSrc: "/shirts/beautiful-wife-tee-womens-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/beautiful-wife-tee-womens--black-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--black-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/beautiful-wife-tee-womens--white-front.png",
+        backSrc: "/shirts/beautiful-wife-tee-womens--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 16:40:14+00:00",
+    etsyUrl: etsyUrls["beautiful-wife-tee-womens"],
+    isPlaceholder: false,
+  },
+  {
+    slug: "catholic-e-cloud-womens-tee",
+    printifyId: "6aa57cfa1be60ba8610711d1",
+    name: "catholic e cloud - womens tee",
+    description: "",
+    priceCents: 3000,
+    imageSrc: "/shirts/catholic-e-cloud-womens-tee-front.png",
+    imageBackSrc: "/shirts/catholic-e-cloud-womens-tee-back.png",
+    imageAlt: "catholic e cloud - womens tee mockup",
+    colors: [
+      {
+        name: "Black",
+        frontSrc: "/shirts/catholic-e-cloud-womens-tee-front.png",
+        backSrc: "/shirts/catholic-e-cloud-womens-tee-back.png"
+      },
+      {
+        name: "Natural",
+        frontSrc: "/shirts/catholic-e-cloud-womens-tee--natural-front.png",
+        backSrc: "/shirts/catholic-e-cloud-womens-tee--natural-back.png"
+      },
+      {
+        name: "White",
+        frontSrc: "/shirts/catholic-e-cloud-womens-tee--white-front.png",
+        backSrc: "/shirts/catholic-e-cloud-womens-tee--white-back.png"
+      }
+    ],
+    createdAt: "2026-09-12 16:25:30+00:00",
+    etsyUrl: ETSY_SHOP_URL,
+    isPlaceholder: false,
+  },
+  {
     slug: "cute-alan-greenspan-tee-womens",
     printifyId: "6a7fd52d04ca29e0460d6778",
     name: "Cute Alan Greenspan Tee - womens",
@@ -117,32 +451,6 @@ export const products: Product[] = [
     tags: ["womens", "cotton", "t-shirt"],
     createdAt: "2026-08-15 02:45:44+00:00",
     etsyUrl: etsyUrls["hypno-crime-womens"],
-    isPlaceholder: false,
-  },
-  {
-    slug: "all-i-got-was-this-perfect-shirt-boxy-tee",
-    printifyId: "6a7fd24d3ecee8dfea066479",
-    name: "All I got was this perfect shirt - boxy tee",
-    description: "",
-    priceCents: 3600,
-    imageSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-front.png",
-    imageBackSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-back.png",
-    imageAlt: "All I got was this perfect shirt - boxy tee mockup",
-    colors: [
-      {
-        name: "Ivory",
-        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-front.png",
-        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee-back.png"
-      },
-      {
-        name: "Black",
-        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee--black-front.png",
-        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-boxy-tee--black-back.png"
-      }
-    ],
-    tags: ["boxy", "cotton", "womens", "t-shirt"],
-    createdAt: "2026-08-15 02:43:25+00:00",
-    etsyUrl: etsyUrls["all-i-got-was-this-perfect-shirt-boxy-tee"],
     isPlaceholder: false,
   },
   {
@@ -285,37 +593,6 @@ export const products: Product[] = [
     isPlaceholder: false,
   },
   {
-    slug: "sun-moon-city-boxy-tee",
-    printifyId: "6a7fcb678d0285ad0601c36f",
-    name: "Sun Moon City - Boxy Tee",
-    description: "",
-    priceCents: 3800,
-    imageSrc: "/shirts/sun-moon-city-boxy-tee-front.png",
-    imageBackSrc: "/shirts/sun-moon-city-boxy-tee-back.png",
-    imageAlt: "Sun Moon City - Boxy Tee mockup",
-    colors: [
-      {
-        name: "Ivory",
-        frontSrc: "/shirts/sun-moon-city-boxy-tee-front.png",
-        backSrc: "/shirts/sun-moon-city-boxy-tee-back.png"
-      },
-      {
-        name: "Black",
-        frontSrc: "/shirts/sun-moon-city-boxy-tee--black-front.png",
-        backSrc: "/shirts/sun-moon-city-boxy-tee--black-back.png"
-      },
-      {
-        name: "Peachy",
-        frontSrc: "/shirts/sun-moon-city-boxy-tee--peachy-front.png",
-        backSrc: "/shirts/sun-moon-city-boxy-tee--peachy-back.png"
-      }
-    ],
-    tags: ["cotton", "womens", "boxy", "t-shirt", "artistic"],
-    createdAt: "2026-08-15 02:13:59+00:00",
-    etsyUrl: etsyUrls["sun-moon-city-boxy-tee"],
-    isPlaceholder: false,
-  },
-  {
     slug: "i-am-not-irish-do-not-touch-me-boxy-tee",
     printifyId: "6a7fca9091b63b6be306f031",
     name: "i am not irish do not touch me - boxy tee",
@@ -334,32 +611,6 @@ export const products: Product[] = [
     tags: ["seasonal", "cotton", "t-shirt", "womens", "bosy"],
     createdAt: "2026-08-15 02:10:24+00:00",
     etsyUrl: etsyUrls["i-am-not-irish-do-not-touch-me-boxy-tee"],
-    isPlaceholder: false,
-  },
-  {
-    slug: "catholic-e-cloud-boxy-tee",
-    printifyId: "6a7fc988a304b1ef4e02ca4b",
-    name: "catholic e cloud - boxy tee",
-    description: "",
-    priceCents: 3600,
-    imageSrc: "/shirts/catholic-e-cloud-boxy-tee-front.png",
-    imageBackSrc: "/shirts/catholic-e-cloud-boxy-tee-back.png",
-    imageAlt: "catholic e cloud - boxy tee mockup",
-    colors: [
-      {
-        name: "Black",
-        frontSrc: "/shirts/catholic-e-cloud-boxy-tee-front.png",
-        backSrc: "/shirts/catholic-e-cloud-boxy-tee-back.png"
-      },
-      {
-        name: "Ivory",
-        frontSrc: "/shirts/catholic-e-cloud-boxy-tee--ivory-front.png",
-        backSrc: "/shirts/catholic-e-cloud-boxy-tee--ivory-back.png"
-      }
-    ],
-    tags: ["cotton", "t-shirt", "womens", "boxy", "catholic"],
-    createdAt: "2026-08-15 02:06:00+00:00",
-    etsyUrl: ETSY_SHOP_URL,
     isPlaceholder: false,
   },
   {
@@ -1476,57 +1727,6 @@ export const products: Product[] = [
     tags: ["Cotton", "T-shirts", "american apparel"],
     createdAt: "2026-08-02 21:58:21+00:00",
     etsyUrl: etsyUrls["hypno-crime"],
-    isPlaceholder: false,
-  },
-  {
-    slug: "beautiful-wife-tee-womens",
-    printifyId: "6a6fbd7d220a3d9838021cc5",
-    name: "Beautiful Wife Tee - womens",
-    description: "",
-    priceCents: 2600,
-    imageSrc: "/shirts/beautiful-wife-tee-womens-front.png",
-    imageBackSrc: "/shirts/beautiful-wife-tee-womens-back.png",
-    imageAlt: "Beautiful Wife Tee - womens mockup",
-    colors: [
-      {
-        name: "Navy",
-        frontSrc: "/shirts/beautiful-wife-tee-womens-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens-back.png"
-      },
-      {
-        name: "Carolina Blue",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--carolina-blue-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--carolina-blue-back.png"
-      },
-      {
-        name: "Charcoal",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--charcoal-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--charcoal-back.png"
-      },
-      {
-        name: "Cream",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--cream-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--cream-back.png"
-      },
-      {
-        name: "Military Green",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--military-green-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--military-green-back.png"
-      },
-      {
-        name: "Pink",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--pink-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--pink-back.png"
-      },
-      {
-        name: "White",
-        frontSrc: "/shirts/beautiful-wife-tee-womens--white-front.png",
-        backSrc: "/shirts/beautiful-wife-tee-womens--white-back.png"
-      }
-    ],
-    tags: ["Cotton", "T-shirts", "american apparel"],
-    createdAt: "2026-08-02 21:58:21+00:00",
-    etsyUrl: etsyUrls["beautiful-wife-tee-womens"],
     isPlaceholder: false,
   },
   {
