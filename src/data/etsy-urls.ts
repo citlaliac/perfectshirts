@@ -7,16 +7,23 @@
 export const etsyUrls: Record<string, string> = {
   "16th-century-sun-tee":
     "https://www.etsy.com/listing/4552500486/16th-century-sun-tee",
+  "alan-greenspannerfly-tee":
+    "https://www.etsy.com/listing/4574108329/alan-greenspannerfly-tee",
   "all-i-got-was-this-perfect-shirt":
     "https://www.etsy.com/listing/4550090665/all-i-got-was-this-perfect-shirt",
-  "all-i-got-was-this-perfect-shirt-boxy-tee":
+  // Former boxy listing, now titled women's in Printify.
+  "all-i-got-was-this-perfect-shirt-womens":
     "https://www.etsy.com/listing/4556105657/all-i-got-was-this-perfect-shirt-boxy",
   "amazing-melons":
     "https://www.etsy.com/listing/4550047495/amazing-melons",
+  "amazing-melons-womens":
+    "https://www.etsy.com/listing/4574118386/amazing-melons-womens",
   "artistic-meat-for-the-capitalist-machine":
     "https://www.etsy.com/listing/4550094745/artistic-meat-for-the-capitalist-machine",
   "beach-day-tee":
     "https://www.etsy.com/listing/4550078440/beach-day",
+  "beach-day-womens":
+    "https://www.etsy.com/listing/4574105093/beach-day-womens",
   // Same Printify/Etsy listing as the former "beautiful-wife-tee" slug.
   "beautiful-wife-tee-womens":
     "https://www.etsy.com/listing/4548759886/beautiful-wife-tee",
@@ -28,6 +35,9 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4548749752/business-casual-tee",
   "business-casualty":
     "https://www.etsy.com/listing/4548735873/business-casualty-tee",
+  // Former boxy listing, now titled women's in Printify.
+  "catholic-e-cloud-womens-tee":
+    "https://www.etsy.com/listing/4574018854/catholic-e-cloud-boxy-tee",
   "catholic-ecloud-chest-logo-frog":
     "https://www.etsy.com/listing/4550034084/catholic-ecloud-chest-logo-frog",
   "catholic-ecloud-fairy-worshiper-simple":
@@ -79,11 +89,14 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4552500189/pumpkin-peeps",
   "purrrfect-shirts":
     "https://www.etsy.com/listing/4550102576/purrrfect-shirts",
+  "purrrfect-shirts-womens":
+    "https://www.etsy.com/listing/4574105023/purrrfect-shirts-womens",
   "small-logo-pumpkin-balloon-halloween-shirt-womens":
     "https://www.etsy.com/listing/4556102777/small-logo-pumpkin-balloon-halloween",
   "sun-moon-city":
     "https://www.etsy.com/listing/4552488367/sun-moon-city",
-  "sun-moon-city-boxy-tee":
+  // Former boxy listing, now titled women's in Printify.
+  "sun-moon-city-womens":
     "https://www.etsy.com/listing/4556107620/sun-moon-city-boxy-tee",
   "sun-moon-on-horseback":
     "https://www.etsy.com/listing/4552488805/sun-moon-on-horseback",
@@ -93,4 +106,6 @@ export const etsyUrls: Record<string, string> = {
     "https://www.etsy.com/listing/4552488713/tepeyollotl-tee",
   "the-candy-man-must":
     "https://www.etsy.com/listing/4550043370/the-candy-man-must",
+  "the-candy-man-must-womens":
+    "https://www.etsy.com/listing/4574104793/the-candy-man-must-womens",
 };

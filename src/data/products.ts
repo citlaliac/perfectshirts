@@ -44,7 +44,7 @@ export const products: Product[] = [
     ],
     tags: ["womens", "novelty"],
     createdAt: "2026-09-12 19:57:35+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["alan-greenspannerfly-tee"],
     isPlaceholder: false,
   },
   {
@@ -54,18 +54,16 @@ export const products: Product[] = [
     description: "",
     priceCents: 3700,
     imageSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
-    imageBackSrc: "/shirts/copy-of-pink-flowers-shirt-back.png",
     imageAlt: "Copy of pink flowers shirt mockup",
     colors: [
       {
-        name: "Pink",
-        frontSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
-        backSrc: "/shirts/copy-of-pink-flowers-shirt-back.png"
+        name: "Team Purple",
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt-front.png"
       },
       {
-        name: "Team Purple",
-        frontSrc: "/shirts/copy-of-pink-flowers-shirt--team-purple-front.png",
-        backSrc: "/shirts/copy-of-pink-flowers-shirt--team-purple-back.png"
+        name: "Pink",
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt--pink-front.png",
+        backSrc: "/shirts/copy-of-pink-flowers-shirt--pink-back.png"
       },
       {
         name: "White",
@@ -114,14 +112,14 @@ export const products: Product[] = [
     imageAlt: "Purrrfect Shirts - womens mockup",
     colors: [
       {
-        name: "Black",
+        name: "Pink",
         frontSrc: "/shirts/purrrfect-shirts-womens-front.png",
         backSrc: "/shirts/purrrfect-shirts-womens-back.png"
       },
       {
-        name: "Pink",
-        frontSrc: "/shirts/purrrfect-shirts-womens--pink-front.png",
-        backSrc: "/shirts/purrrfect-shirts-womens--pink-back.png"
+        name: "Black",
+        frontSrc: "/shirts/purrrfect-shirts-womens--black-front.png",
+        backSrc: "/shirts/purrrfect-shirts-womens--black-back.png"
       },
       {
         name: "White",
@@ -131,7 +129,7 @@ export const products: Product[] = [
     ],
     tags: ["womens"],
     createdAt: "2026-09-12 19:47:41+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["purrrfect-shirts-womens"],
     isPlaceholder: false,
   },
   {
@@ -145,19 +143,19 @@ export const products: Product[] = [
     imageAlt: "Beach day! - womens mockup",
     colors: [
       {
-        name: "Carolina Blue",
+        name: "White",
         frontSrc: "/shirts/beach-day-womens-front.png",
         backSrc: "/shirts/beach-day-womens-back.png"
       },
       {
-        name: "White",
-        frontSrc: "/shirts/beach-day-womens--white-front.png",
-        backSrc: "/shirts/beach-day-womens--white-back.png"
+        name: "Carolina Blue",
+        frontSrc: "/shirts/beach-day-womens--carolina-blue-front.png",
+        backSrc: "/shirts/beach-day-womens--carolina-blue-back.png"
       }
     ],
     tags: ["womens", "artistic", "novelty"],
     createdAt: "2026-09-12 19:46:51+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["beach-day-womens"],
     isPlaceholder: false,
   },
   {
@@ -187,7 +185,7 @@ export const products: Product[] = [
       }
     ],
     createdAt: "2026-09-12 19:46:31+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["the-candy-man-must-womens"],
     isPlaceholder: false,
   },
   {
@@ -217,7 +215,7 @@ export const products: Product[] = [
       }
     ],
     createdAt: "2026-09-12 19:41:58+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["amazing-melons-womens"],
     isPlaceholder: false,
   },
   {
@@ -231,14 +229,14 @@ export const products: Product[] = [
     imageAlt: "Sun Moon City - Womens mockup",
     colors: [
       {
-        name: "Black",
+        name: "Carolina Blue",
         frontSrc: "/shirts/sun-moon-city-womens-front.png",
         backSrc: "/shirts/sun-moon-city-womens-back.png"
       },
       {
-        name: "Carolina Blue",
-        frontSrc: "/shirts/sun-moon-city-womens--carolina-blue-front.png",
-        backSrc: "/shirts/sun-moon-city-womens--carolina-blue-back.png"
+        name: "Black",
+        frontSrc: "/shirts/sun-moon-city-womens--black-front.png",
+        backSrc: "/shirts/sun-moon-city-womens--black-back.png"
       },
       {
         name: "Natural",
@@ -252,7 +250,7 @@ export const products: Product[] = [
       }
     ],
     createdAt: "2026-09-12 19:27:13+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["sun-moon-city-womens"],
     isPlaceholder: false,
   },
   {
@@ -266,23 +264,23 @@ export const products: Product[] = [
     imageAlt: "All I got was this perfect shirt - womens mockup",
     colors: [
       {
-        name: "Carolina Blue",
+        name: "White",
         frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-front.png",
         backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens-back.png"
+      },
+      {
+        name: "Carolina Blue",
+        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--carolina-blue-front.png",
+        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--carolina-blue-back.png"
       },
       {
         name: "Natural",
         frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--natural-front.png",
         backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--natural-back.png"
-      },
-      {
-        name: "White",
-        frontSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--white-front.png",
-        backSrc: "/shirts/all-i-got-was-this-perfect-shirt-womens--white-back.png"
       }
     ],
     createdAt: "2026-09-12 16:48:28+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["all-i-got-was-this-perfect-shirt-womens"],
     isPlaceholder: false,
   },
   {
@@ -342,7 +340,7 @@ export const products: Product[] = [
       }
     ],
     createdAt: "2026-09-12 16:25:30+00:00",
-    etsyUrl: ETSY_SHOP_URL,
+    etsyUrl: etsyUrls["catholic-e-cloud-womens-tee"],
     isPlaceholder: false,
   },
   {
@@ -352,13 +350,11 @@ export const products: Product[] = [
     description: "",
     priceCents: 3000,
     imageSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
-    imageBackSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png",
     imageAlt: "Cute Alan Greenspan Tee - womens mockup",
     colors: [
       {
         name: "Teal",
-        frontSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
-        backSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png"
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png"
       },
       {
         name: "Black",
@@ -393,13 +389,11 @@ export const products: Product[] = [
     description: "",
     priceCents: 3500,
     imageSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
-    imageBackSrc: "/shirts/cute-oil-giant-tee-womens-back.png",
     imageAlt: "Cute Oil Giant Tee - womens mockup",
     colors: [
       {
         name: "Pink",
-        frontSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
-        backSrc: "/shirts/cute-oil-giant-tee-womens-back.png"
+        frontSrc: "/shirts/cute-oil-giant-tee-womens-front.png"
       },
       {
         name: "Carolina Blue",
@@ -510,14 +504,9 @@ export const products: Product[] = [
     imageAlt: "Small logo Pumpkin Balloon Halloween Shirt - Womens mockup",
     colors: [
       {
-        name: "White",
+        name: "Black",
         frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-front.png",
         backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-back.png"
-      },
-      {
-        name: "Black",
-        frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--black-front.png",
-        backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--black-back.png"
       }
     ],
     tags: ["t-shirt", "cotton", "womens", "seasonal"],
@@ -962,14 +951,9 @@ export const products: Product[] = [
     imageAlt: "Purrrfect Shirts mockup",
     colors: [
       {
-        name: "Blonde",
+        name: "Brown",
         frontSrc: "/shirts/purrrfect-shirts-front.png",
         backSrc: "/shirts/purrrfect-shirts-back.png"
-      },
-      {
-        name: "Brown",
-        frontSrc: "/shirts/purrrfect-shirts--brown-front.png",
-        backSrc: "/shirts/purrrfect-shirts--brown-back.png"
       },
       {
         name: "Dark Grey",
@@ -1013,8 +997,7 @@ export const products: Product[] = [
       },
       {
         name: "Blonde",
-        frontSrc: "/shirts/beach-day-tee--blonde-front.png",
-        backSrc: "/shirts/beach-day-tee--blonde-back.png"
+        frontSrc: "/shirts/beach-day-tee--blonde-front.png"
       },
       {
         name: "Khaki",
@@ -1530,8 +1513,7 @@ export const products: Product[] = [
       },
       {
         name: "Khaki",
-        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-front.png",
-        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-back.png"
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-front.png"
       },
       {
         name: "Navy",
