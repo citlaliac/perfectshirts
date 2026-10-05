@@ -54,11 +54,13 @@ export const products: Product[] = [
     description: "",
     priceCents: 3700,
     imageSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
+    imageBackSrc: "/shirts/copy-of-pink-flowers-shirt-back.png",
     imageAlt: "Copy of pink flowers shirt mockup",
     colors: [
       {
         name: "Team Purple",
-        frontSrc: "/shirts/copy-of-pink-flowers-shirt-front.png"
+        frontSrc: "/shirts/copy-of-pink-flowers-shirt-front.png",
+        backSrc: "/shirts/copy-of-pink-flowers-shirt-back.png"
       },
       {
         name: "Pink",
@@ -350,11 +352,13 @@ export const products: Product[] = [
     description: "",
     priceCents: 3000,
     imageSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
+    imageBackSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png",
     imageAlt: "Cute Alan Greenspan Tee - womens mockup",
     colors: [
       {
         name: "Teal",
-        frontSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png"
+        frontSrc: "/shirts/cute-alan-greenspan-tee-womens-front.png",
+        backSrc: "/shirts/cute-alan-greenspan-tee-womens-back.png"
       },
       {
         name: "Black",
@@ -389,11 +393,13 @@ export const products: Product[] = [
     description: "",
     priceCents: 3500,
     imageSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
+    imageBackSrc: "/shirts/cute-oil-giant-tee-womens-back.png",
     imageAlt: "Cute Oil Giant Tee - womens mockup",
     colors: [
       {
         name: "Pink",
-        frontSrc: "/shirts/cute-oil-giant-tee-womens-front.png"
+        frontSrc: "/shirts/cute-oil-giant-tee-womens-front.png",
+        backSrc: "/shirts/cute-oil-giant-tee-womens-back.png"
       },
       {
         name: "Carolina Blue",
@@ -504,9 +510,14 @@ export const products: Product[] = [
     imageAlt: "Small logo Pumpkin Balloon Halloween Shirt - Womens mockup",
     colors: [
       {
-        name: "Black",
+        name: "White",
         frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-front.png",
         backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens-back.png"
+      },
+      {
+        name: "Black",
+        frontSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--black-front.png",
+        backSrc: "/shirts/small-logo-pumpkin-balloon-halloween-shirt-womens--black-back.png"
       }
     ],
     tags: ["t-shirt", "cotton", "womens", "seasonal"],
@@ -951,9 +962,14 @@ export const products: Product[] = [
     imageAlt: "Purrrfect Shirts mockup",
     colors: [
       {
-        name: "Brown",
+        name: "Blonde",
         frontSrc: "/shirts/purrrfect-shirts-front.png",
         backSrc: "/shirts/purrrfect-shirts-back.png"
+      },
+      {
+        name: "Brown",
+        frontSrc: "/shirts/purrrfect-shirts--brown-front.png",
+        backSrc: "/shirts/purrrfect-shirts--brown-back.png"
       },
       {
         name: "Dark Grey",
@@ -997,7 +1013,8 @@ export const products: Product[] = [
       },
       {
         name: "Blonde",
-        frontSrc: "/shirts/beach-day-tee--blonde-front.png"
+        frontSrc: "/shirts/beach-day-tee--blonde-front.png",
+        backSrc: "/shirts/beach-day-tee--blonde-back.png"
       },
       {
         name: "Khaki",
@@ -1513,7 +1530,8 @@ export const products: Product[] = [
       },
       {
         name: "Khaki",
-        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-front.png"
+        frontSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-front.png",
+        backSrc: "/shirts/premium-catholic-ecloud-fairyworhsiper--khaki-back.png"
       },
       {
         name: "Navy",
